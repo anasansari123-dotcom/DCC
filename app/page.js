@@ -110,9 +110,8 @@ export default function HomePage() {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-500 ${
-              index === current ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`absolute inset-0 transition-opacity duration-500 ${index === current ? 'opacity-100' : 'opacity-0'
+              }`}
           >
             <div className="w-full h-full bg-gradient-to-r from-gray-900 to-red-800 flex items-center">
               <div className="max-w-4xl mx-auto px-6 text-white">
@@ -147,9 +146,8 @@ export default function HomePage() {
             <button
               key={index}
               onClick={() => setCurrent(index)}
-              className={`w-3 h-3 rounded-full ${
-                index === current ? 'bg-red-500' : 'bg-white bg-opacity-50'
-              }`}
+              className={`w-3 h-3 rounded-full ${index === current ? 'bg-red-500' : 'bg-white bg-opacity-50'
+                }`}
             />
           ))}
         </div>
@@ -265,7 +263,7 @@ export default function HomePage() {
           </section>
         </div>
       </div>
-      
+
       {/* How LeadsGuru Works Section */}
       <section className="py-16 px-6 text-center">
         <h2 className="text-3xl font-bold mb-12 relative inline-block">
@@ -275,7 +273,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
           {/* Card 1 */}
           <div className="flex flex-col items-center">
-            <Image
+            <img
               src="https://cdn-icons-png.flaticon.com/512/2965/2965278.png"
               alt="Educate"
               width={128}
@@ -290,7 +288,7 @@ export default function HomePage() {
 
           {/* Card 2 */}
           <div className="flex flex-col items-center">
-            <Image
+            <img
               src="https://cdn-icons-png.flaticon.com/512/4333/4333609.png"
               alt="Innovate"
               width={128}
@@ -305,7 +303,7 @@ export default function HomePage() {
 
           {/* Card 3 */}
           <div className="flex flex-col items-center">
-            <Image
+            <img
               src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
               alt="Dominate"
               width={128}
@@ -330,7 +328,7 @@ export default function HomePage() {
           {/* Left side - Points */}
           <div className="space-y-6">
             <div className="flex items-start bg-white shadow-md rounded-lg p-4">
-              <Image
+              <img
                 src="https://cdn-icons-png.flaticon.com/512/1828/1828961.png"
                 alt="Trends"
                 width={40}
@@ -343,7 +341,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex items-start bg-white shadow-md rounded-lg p-4">
-              <Image
+              <img
                 src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
                 alt="Certification"
                 width={40}
@@ -356,7 +354,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex items-start bg-white shadow-md rounded-lg p-4">
-              <Image
+              <img
                 src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
                 alt="Commission"
                 width={40}
@@ -369,7 +367,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex items-start bg-white shadow-md rounded-lg p-4">
-              <Image
+              <img
                 src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
                 alt="Partner Program"
                 width={40}
@@ -384,7 +382,7 @@ export default function HomePage() {
 
           {/* Right side - Illustration */}
           <div className="flex justify-center">
-            <Image
+            <img
               src="https://cdni.iconscout.com/illustration/premium/thumb/confused-girl-illustration-download-in-svg-png-gif-file-formats--question-female-woman-people-pack-illustrations-4228788.png"
               alt="Confused girl"
               width={320}
@@ -425,16 +423,16 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          
+
           {/* Navigation buttons */}
-          <button 
-            onClick={prevInstructor} 
+          <button
+            onClick={prevInstructor}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-md hover:bg-gray-100 transition-colors"
           >
             <FaChevronLeft className="text-gray-700" />
           </button>
-          <button 
-            onClick={nextInstructor} 
+          <button
+            onClick={nextInstructor}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-md hover:bg-gray-100 transition-colors"
           >
             <FaChevronRight className="text-gray-700" />
@@ -447,9 +445,8 @@ export default function HomePage() {
             <button
               key={index}
               onClick={() => setCurrentInstructor(index)}
-              className={`w-3 h-3 rounded-full ${
-                index === currentInstructor ? 'bg-yellow-500' : 'bg-gray-300'
-              }`}
+              className={`w-3 h-3 rounded-full ${index === currentInstructor ? 'bg-yellow-500' : 'bg-gray-300'
+                }`}
             />
           ))}
         </div>

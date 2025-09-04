@@ -12,7 +12,7 @@ const Footer = () => {
         {/* Logo & About */}
         <div>
           <h2 className="text-2xl font-bold flex items-center gap-2">
-                   <Image src="./logo.jpg" alt="" width={56} height={56} className="w-14 h-14 rounded-full" />
+                   <img src="./logo.jpg" alt=""  className="w-14 h-14 rounded-full" />
 
             Digital Career Center
           </h2>

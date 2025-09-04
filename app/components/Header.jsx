@@ -7,7 +7,7 @@ const Header = () => {
     <header className="flex items-center justify-between px-8 py-4 shadow-sm bg-white border-b-2 border-red-600">
       {/* Logo */}
       <div className="flex items-center space-x-3">
-        <Image src="./logo.jpg" alt="" width={48} height={48} className="w-12 h-12 rounded-full" />
+        <img src="./logo.jpg" alt="" className="w-12 h-12 rounded-full" />
         <span className="text-xl font-bold text-gray-900">Digital Career Center</span>
       </div>
 
@@ -92,12 +92,15 @@ const Header = () => {
       </nav>
 
       {/* Login/Signup Button */}
-      <a
-        href="#"
-        className="bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-2 rounded-full transition-colors shadow-md hover:shadow-lg"
-      >
-        <a href="/login">Login </a>/ <a href="/signup">Signup</a>
-      </a>
+     <div className="bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-2 rounded-full transition-colors shadow-md hover:shadow-lg flex items-center space-x-2">
+  <a href="/login" className="hover:underline">
+    Login
+  </a>
+  <span>/</span>
+  <a href="/signup" className="hover:underline">
+    Signup
+  </a>
+</div>
     </header>
   );
 };
