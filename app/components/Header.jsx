@@ -10,7 +10,7 @@ const Header = () => {
     <header className="flex items-center justify-between px-6 py-4 shadow-sm bg-white border-b-2 border-red-600 relative">
       {/* Logo */}
       <div className="flex items-center space-x-3">
-        <img src="/logo.jpg" alt="Logo" className="w-12 h-12 rounded-full" />
+        <img src="/logo.jpg" alt="Logo" className="w-16 h-16 rounded-full" />
         <span className="text-lg md:text-xl font-bold text-gray-900">
           Digital Career Center
         </span>
@@ -47,7 +47,7 @@ const Header = () => {
           <div
             className="absolute opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 
             transition-all duration-300 ease-out transform bg-white shadow-md rounded-md mt-2 w-40 
-            border border-red-200 z-10"
+            border border-red-200 z-20"
           >
             {[
               { name: "Bronze Bundle", href: "/BronzeBundle" },

@@ -10,29 +10,33 @@ const slides = [
     title: "Welcome to Digital Career Center",
     subtitle: "Transform Your Career with Expert-Led Courses",
     description: "Master essential skills and advance your professional journey with our comprehensive course bundles.",
-    image: "/images/slide1.jpg"
+    image: "/Banner2.jpg"
   },
   {
     id: 2,
     title: "Professional Development Made Easy",
     subtitle: "Learn at Your Own Pace",
     description: "Access high-quality content designed by industry experts to help you succeed in today's competitive market.",
-    image: "/images/slide2.jpg"
+    image: "/banner2.jpg"
   },
   {
     id: 3,
     title: "Join Thousands of Successful Learners",
     subtitle: "Start Your Journey Today",
     description: "Be part of a community that's already transforming their careers and achieving their professional goals.",
-    image: "/images/slide3.jpg"
+    image: "/banner2.jpg"
   }
 ];
 
 export default function HomePage() {
   const [current, setCurrent] = useState(0);
   const [currentInstructor, setCurrentInstructor] = useState(0);
+  const [currentPackage, setCurrentPackage] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
   const sliderRef = useRef(null);
   const autoPlayRef = useRef(null);
+  const packageAutoPlayRef = useRef(null);
 
   const packages = [
     {
@@ -47,7 +51,7 @@ export default function HomePage() {
         "140K+ Students Enrolled",
         "DCC Certificate",
       ],
-      image: "/images/bronze.png",
+      image: "/a2.png",
     },
     {
       title: "Silver Package",
@@ -61,17 +65,83 @@ export default function HomePage() {
         "90K+ Students Enrolled",
         "DCC Certificate",
       ],
-      image: "/images/silver.png",
+      image: "/B1.png"
+    },
+    {
+      title: "Gold Package",
+      courses: "25 Courses",
+      hours: "85 Hours",
+      enrollments: "75K+ Enrollments",
+      price: "₹5,999",
+      oldPrice: "₹9,999",
+      features: [
+        "Live Q&A Support",
+        "75K+ Students Enrolled",
+        "DCC Certificate",
+        "Priority Support",
+      ],
+      image: "/C1.png"
+    },
+    {
+      title: "Platinum Package",
+      courses: "40 Courses",
+      hours: "120 Hours",
+      enrollments: "50K+ Enrollments",
+      price: "₹8,999",
+      oldPrice: "₹14,999",
+      features: [
+        "Live Q&A Support",
+        "50K+ Students Enrolled",
+        "DCC Certificate",
+        "Priority Support",
+        "1-on-1 Mentoring",
+      ],
+      image: "/D1.png"
+    },
+    {
+      title: "Diamond Package",
+      courses: "60 Courses",
+      hours: "180 Hours",
+      enrollments: "25K+ Enrollments",
+      price: "₹12,999",
+      oldPrice: "₹19,999",
+      features: [
+        "Live Q&A Support",
+        "25K+ Students Enrolled",
+        "DCC Certificate",
+        "Priority Support",
+        "1-on-1 Mentoring",
+        "Career Guidance",
+      ],
+      image: "/E1.png"
+    },
+    {
+      title: "Elite Package",
+      courses: "80 Courses",
+      hours: "250 Hours",
+      enrollments: "15K+ Enrollments",
+      price: "₹18,999",
+      oldPrice: "₹29,999",
+      features: [
+        "Live Q&A Support",
+        "15K+ Students Enrolled",
+        "DCC Certificate",
+        "Priority Support",
+        "1-on-1 Mentoring",
+        "Career Guidance",
+        "Job Placement Assistance",
+      ],
+      image: "/F1.png"
     },
   ];
 
   const instructors = [
-    { name: "Shivaank Garg", role: "Instructor", img: "/images/ins1.jpg" },
-    { name: "Vinit Aggarwal", role: "Instructor", img: "/images/ins2.jpg" },
-    { name: "Rajeev Mathur", role: "Instructor", img: "/images/ins3.jpg" },
-    { name: "Aditi Sharma", role: "Instructor", img: "/images/ins4.jpg" },
-    { name: "Priya Patel", role: "Instructor", img: "/images/ins5.jpg" },
-    { name: "Rahul Singh", role: "Instructor", img: "/images/ins6.jpg" },
+    { name: "Mr Kaleem Sir", role: "Instructor", img: "/kaleem sir .png" },
+    { name: "Mr Aasif Khan", role: "Instructor", img: "/my profile pic.png" },
+    { name: "Mr Ibrahim", role: "Instructor", img: "/ibrahim finel pose.png" },
+    { name: "Mr Shivam", role: "Instructor", img: "/shivam fine pose.png" },
+    { name: "Mr Asad", role: "Instructor", img: "/asad.png" },
+    { name: "Mr Arham", role: "Instructor", img: "/arham finel pose.png" },
   ];
 
   const prevSlide = () => {
@@ -90,6 +160,38 @@ export default function HomePage() {
     setCurrentInstructor(prev => (prev - 1 + instructors.length) % instructors.length);
   }, [instructors.length]);
 
+  const nextPackage = useCallback(() => {
+    setCurrentPackage(prev => (prev + 1) % packages.length);
+  }, [packages.length]);
+
+  const prevPackage = useCallback(() => {
+    setCurrentPackage(prev => (prev - 1 + packages.length) % packages.length);
+  }, [packages.length]);
+
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextPackage();
+    } else if (isRightSwipe) {
+      prevPackage();
+    }
+  };
+
   // Auto-play for instructor slider
   useEffect(() => {
     autoPlayRef.current = setInterval(() => {
@@ -103,6 +205,19 @@ export default function HomePage() {
     };
   }, [nextInstructor]);
 
+  // Auto-play for packages slider
+  useEffect(() => {
+    packageAutoPlayRef.current = setInterval(() => {
+      nextPackage();
+    }, 5000);
+
+    return () => {
+      if (packageAutoPlayRef.current) {
+        clearInterval(packageAutoPlayRef.current);
+      }
+    };
+  }, [nextPackage]);
+
   return (
     <div className="w-full">
       {/* Slider Section */}
@@ -113,12 +228,17 @@ export default function HomePage() {
             className={`absolute inset-0 transition-opacity duration-500 ${index === current ? 'opacity-100' : 'opacity-0'
               }`}
           >
-            <div className="w-full h-full bg-gradient-to-r from-gray-900 to-red-800 flex items-center">
-              <div className="max-w-4xl mx-auto px-6 text-white">
+            <div 
+              className="w-full h-full  bg-center bg-cover bg-no-repeat flex items-center relative"
+              style={{ backgroundImage: `url(${slide.image})` }}
+            >
+              {/* Overlay for better text readability */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-red-600/20"></div>
+              <div className="max-w-4xl mx-auto px-6 text-white relative z-10">
                 <h1 className="text-5xl font-bold mb-4">{slide.title}</h1>
-                <h2 className="text-2xl mb-4 text-red-300">{slide.subtitle}</h2>
-                <p className="text-lg text-gray-200 mb-8">{slide.description}</p>
-                <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+                <h2 className="text-2xl mb-4 text-red-200">{slide.subtitle}</h2>
+                <p className="text-lg text-gray-100 mb-8">{slide.description}</p>
+                <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-colors border-2 border-white">
                   Get Started
                 </button>
               </div>
@@ -157,7 +277,7 @@ export default function HomePage() {
       <div className="bg-white py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-4xl font-bold text-black mb-4">
               Why Choose Digital Career Center
               <div className="w-32 h-2 bg-red-600 mx-auto mt-2"></div>
             </h2>
@@ -167,97 +287,140 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* card 1 */}
             <div className="text-center">
-              <div className="w-20 h-20 bg-red-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-10 h-10 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-20 h-20 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Expert Instructors</h3>
-              <p className="text-gray-600">Learn from industry professionals with years of experience</p>
+              <h3 className="text-xl font-bold text-black mb-2">Expert Instructors</h3>
+              <p className="text-gray-700">Learn from industry professionals with years of experience</p>
             </div>
 
             {/* card 2 */}
             <div className="text-center">
-              <div className="w-20 h-20 bg-red-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-10 h-10 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-20 h-20 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Flexible Learning</h3>
-              <p className="text-gray-600">Study at your own pace with 24/7 access to courses</p>
+              <h3 className="text-xl font-bold text-black mb-2">Flexible Learning</h3>
+              <p className="text-gray-700">Study at your own pace with 24/7 access to courses</p>
             </div>
 
             {/* card 3 */}
             <div className="text-center">
-              <div className="w-20 h-20 bg-red-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-10 h-10 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-20 h-20 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Certification</h3>
-              <p className="text-gray-600">Earn recognized certificates to boost your career</p>
+              <h3 className="text-xl font-bold text-black mb-2">Certification</h3>
+              <p className="text-gray-700">Earn recognized certificates to boost your career</p>
             </div>
           </div>
 
           {/* Packages Section */}
-          <section className="py-16 bg-yellow-50">
-            <h2 className="text-3xl font-bold text-center mb-6">
+          <section className="py-16 bg-red-50">
+            <h2 className="text-3xl font-bold text-center mb-6 text-black">
               Our Exclusive Packages
             </h2>
-            <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+            <p className="text-center text-gray-700 max-w-2xl mx-auto mb-12">
               With our exclusive packages, now you can be assured to acquire the best
               knowledge and expertise from our team of experts. We believe you can
               empower the world with industry-leading courses.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto px-6">
-              {packages.map((pkg, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden border"
-                >
-                  {/* Image */}
-                  <div className="bg-gradient-to-r from-purple-100 to-pink-100 flex items-center justify-center h-52">
-                    <Image
-                      src={pkg.image}
-                      alt={pkg.title}
-                      width={160}
-                      height={160}
-                      className="w-40 h-40 object-contain"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3">{pkg.title}</h3>
-
-                    <div className="flex items-center gap-6 text-gray-700 text-sm mb-4">
-                      <span>📘 {pkg.courses}</span>
-                      <span>⏳ {pkg.hours}</span>
-                      <span>👥 {pkg.enrollments}</span>
-                    </div>
-
-                    <ul className="space-y-2 mb-4 text-gray-600">
-                      {pkg.features.map((feature, i) => (
-                        <li key={i}>✅ {feature}</li>
-                      ))}
-                    </ul>
-
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-2xl font-bold text-gray-900">
-                          {pkg.price}
-                        </span>
-                        <span className="line-through text-gray-500 ml-2">
-                          {pkg.oldPrice}
-                        </span>
+            {/* Packages Slider */}
+            <div 
+              className="relative max-w-6xl mx-auto overflow-hidden"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div className="flex transition-transform duration-500 ease-in-out"
+                style={{ 
+                  transform: `translateX(-${currentPackage * 100}%)` 
+                }}
+              >
+                {packages.map((pkg, index) => (
+                  <div
+                    key={index}
+                    className="min-w-full flex-shrink-0 px-2 md:px-4"
+                  >
+                    <div className="bg-white rounded-2xl shadow-lg overflow-hidden border h-full max-w-md mx-auto">
+                      {/* Image */}
+                      <div className="bg-gradient-to-r from-purple-100 to-pink-100 flex items-center justify-center h-40 md:h-52">
+                        <Image
+                          src={pkg.image}
+                          alt={pkg.title}
+                          width={120}
+                          height={120}
+                          className="w-24 h-24 md:w-40 md:h-40 object-contain"
+                        />
                       </div>
-                      <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-5 py-2 rounded-lg shadow">
-                        View Details
-                      </button>
+
+                      {/* Content */}
+                      <div className="p-4 md:p-6">
+                        <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{pkg.title}</h3>
+
+                        <div className="flex flex-wrap items-center gap-2 md:gap-6 text-gray-700 text-xs md:text-sm mb-3 md:mb-4">
+                          <span className="flex items-center gap-1">📘 {pkg.courses}</span>
+                          <span className="flex items-center gap-1">⏳ {pkg.hours}</span>
+                          <span className="flex items-center gap-1">👥 {pkg.enrollments}</span>
+                        </div>
+
+                        <ul className="space-y-1 md:space-y-2 mb-3 md:mb-4 text-gray-600 text-sm">
+                          {pkg.features.map((feature, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <span className="text-green-500 mt-0.5">✅</span>
+                              <span className="text-xs md:text-sm">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                            <span className="text-xl md:text-2xl font-bold text-gray-900">
+                              {pkg.price}
+                            </span>
+                            <span className="line-through text-gray-500 text-sm md:text-base">
+                              {pkg.oldPrice}
+                            </span>
+                          </div>
+                          <button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg shadow text-sm md:text-base w-full sm:w-auto border-2 border-red-600 hover:border-red-700">
+                            View Details
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
+              </div>
+
+              {/* Navigation buttons - Visible on all screen sizes */}
+              <button
+                onClick={prevPackage}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-md hover:bg-gray-100 transition-colors"
+              >
+                <FaChevronLeft className="text-gray-700" />
+              </button>
+              <button
+                onClick={nextPackage}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-md hover:bg-gray-100 transition-colors"
+              >
+                <FaChevronRight className="text-gray-700" />
+              </button>
+            </div>
+
+            {/* Dots indicator */}
+            <div className="flex justify-center mt-4 md:mt-6 space-x-2">
+              {packages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentPackage(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${index === currentPackage ? 'bg-red-600' : 'bg-gray-300'
+                    }`}
+                />
               ))}
             </div>
           </section>
@@ -266,9 +429,9 @@ export default function HomePage() {
 
       {/* How LeadsGuru Works Section */}
       <section className="py-16 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-12 relative inline-block">
+        <h2 className="text-3xl font-bold mb-12 relative inline-block text-black">
           How Digital Career Center Works
-          <span className="block w-24 h-1 bg-yellow-400 mx-auto mt-2"></span>
+          <span className="block w-24 h-1 bg-red-600 mx-auto mt-2"></span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
           {/* Card 1 */}
@@ -320,9 +483,9 @@ export default function HomePage() {
 
       {/* Why LeadsGuru Section */}
       <section className="py-16 px-6 bg-gradient-to-b from-purple-100 to-purple-200">
-        <h2 className="text-3xl font-bold text-center mb-12 relative inline-block">
+        <h2 className="text-3xl font-bold text-center mb-12 relative inline-block text-black">
           Why Digital Career Center
-          <span className="block w-24 h-1 bg-yellow-400 mx-auto mt-2"></span>
+          <span className="block w-24 h-1 bg-red-600 mx-auto mt-2"></span>
         </h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left side - Points */}
@@ -394,10 +557,10 @@ export default function HomePage() {
       </section>
 
       {/* Instructors Section with Looping Card Slider */}
-      <section className="py-16 px-6 bg-yellow-50 text-center">
-        <h2 className="text-3xl font-bold mb-8 relative inline-block">
+      <section className="py-16 px-6 bg-red-50 text-center">
+        <h2 className="text-3xl font-bold mb-8 relative inline-block text-black">
           Our Instructors
-          <span className="block w-24 h-1 bg-yellow-400 mx-auto mt-2"></span>
+          <span className="block w-24 h-1 bg-red-600 mx-auto mt-2"></span>
         </h2>
 
         <div className="relative max-w-4xl mx-auto overflow-hidden">
@@ -407,7 +570,7 @@ export default function HomePage() {
             {instructors.map((ins, idx) => (
               <div
                 key={idx}
-                className="min-w-full md:min-w-[50%] flex-shrink-0 px-4"
+                className="min-w-full flex-shrink-0 px-4"
               >
                 <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center transition-transform duration-300 hover:scale-105">
                   <Image
@@ -445,7 +608,7 @@ export default function HomePage() {
             <button
               key={index}
               onClick={() => setCurrentInstructor(index)}
-              className={`w-3 h-3 rounded-full ${index === currentInstructor ? 'bg-yellow-500' : 'bg-gray-300'
+              className={`w-3 h-3 rounded-full ${index === currentInstructor ? 'bg-red-600' : 'bg-gray-300'
                 }`}
             />
           ))}
@@ -453,10 +616,10 @@ export default function HomePage() {
       </section>
 
       {/* Alumni Section */}
-      <section className="py-16 px-6 text-center bg-purple-50">
-        <h2 className="text-3xl font-bold mb-8 relative inline-block">
+      <section className="py-16 px-6 text-center bg-red-50">
+        <h2 className="text-3xl font-bold mb-8 relative inline-block text-black">
           Hear from Our Alumni
-          <span className="block w-24 h-1 bg-yellow-400 mx-auto mt-2"></span>
+          <span className="block w-24 h-1 bg-red-600 mx-auto mt-2"></span>
         </h2>
 
         <div className="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-6">
@@ -480,9 +643,9 @@ export default function HomePage() {
 
       {/* Media Presence Section */}
       <section className="py-16 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-8 relative inline-block">
+        <h2 className="text-3xl font-bold mb-8 relative inline-block text-black">
           Our Media Presence
-          <span className="block w-24 h-1 bg-yellow-400 mx-auto mt-2"></span>
+          <span className="block w-24 h-1 bg-red-600 mx-auto mt-2"></span>
         </h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto">
@@ -508,8 +671,8 @@ export default function HomePage() {
 
       {/* Disclaimer Section */}
       <footer className="bg-red-600 text-center py-6 mt-12">
-        <p className="text-sm text-black max-w-3xl mx-auto">
-          Disclaimer: LeadsGuru is an independent training provider. All content
+        <p className="text-sm text-white max-w-3xl mx-auto">
+          Disclaimer: Digital Career Center is an independent training provider. All content
           and materials are for educational purposes only and do not guarantee
           job placement or career advancement.
         </p>
