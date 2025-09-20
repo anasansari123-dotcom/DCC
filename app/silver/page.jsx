@@ -87,49 +87,8 @@ export default function BronzeBundlePage() {
       
       {/* Top Header Section */}
     <div className="bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 text-black">
-  <div className="max-w-7xl mx-auto px-6 py-12">
-    <div className="grid md:grid-cols-2 gap-8 items-center">
-      {/* Left Side - Title */}
-      <div className="space-y-6">
-        {/* Decorative Stars */}
-        <div className="flex space-x-2">
-          <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-          <div className="w-3 h-3 bg-white rounded-full animate-pulse delay-100"></div>
-          <div className="w-3 h-3 bg-white rounded-full animate-pulse delay-200"></div>
-        </div>
+    <img src="/acbs.jpg" alt="" className='w-full h-[500px] ' />
 
-        <div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gray-900">
-            Silver Package
-          </h1>
-          <p className="text-xl text-gray-700">
-            Stand Out, Get Noticed, Grow Digitally
-          </p>
-        </div>
-      </div>
-
-      {/* Right Side - Course Statistics */}
-      <div className="flex space-x-8 mt-6 md:mt-0">
-        {/* Courses */}
-        <div className="flex items-center space-x-2">
-          <span className="text-purple-600 text-2xl">📘</span>
-          <span className="font-semibold text-gray-900">14 Courses</span>
-        </div>
-
-        {/* Hours */}
-        <div className="flex items-center space-x-2">
-          <span className="text-yellow-600 text-2xl">⏳</span>
-          <span className="font-semibold text-gray-900">52 Hours</span>
-        </div>
-
-        {/* Students */}
-        <div className="flex items-center space-x-2">
-          <span className="text-purple-500 text-2xl">👥</span>
-          <span className="font-semibold text-gray-900">90K+ Students Enrolled</span>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
       {/* Main Content Area */}

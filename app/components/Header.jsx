@@ -46,16 +46,16 @@ const Header = () => {
           {/* Dropdown Menu */}
           <div
             className="absolute opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 
-            transition-all duration-300 ease-out transform bg-white shadow-md rounded-md mt-2 w-40 
+            transition-all duration-300 ease-out transform bg-white shadow-md rounded-md mt-2 w-48 
             border border-red-200 z-20"
           >
             {[
-              { name: "Bronze Bundle", href: "/BronzeBundle" },
-              { name: "Silver Package", href: "/silver" },
-              { name: "Gold Package", href: "/gold" },
-              { name: "Platinum Package", href: "/platinum" },
-              { name: "Diamond Package", href: "/Diamond" },
-              { name: "DCC Startup Package", href: "/dcc" },
+              { name: "Digital Starter Package", href: "/BronzeBundle" },
+              { name: "Advance Basic Computer", href: "/silver" },
+              { name: "Search Engine Optimization", href: "/gold" },
+              { name: "Hindi Typing", href: "/platinum" },
+              { name: "Youtube Ads", href: "/Diamond" },
+              { name: "Google Ads", href: "/dcc" },
             ].map((item, idx) => (
               <a
                 key={idx}
@@ -68,6 +68,12 @@ const Header = () => {
           </div>
         </div>
 
+        <a
+          href="/blog"
+          className="text-gray-900 font-medium hover:text-red-600 transition-colors"
+        >
+          Blog
+        </a>
         <a
           href="#"
           className="text-gray-900 font-medium hover:text-red-600 transition-colors"
@@ -127,6 +133,9 @@ const Header = () => {
                 </a>
               </div>
             </div>
+            <a href="/blog" className="text-gray-900 hover:text-red-600">
+              Blog
+            </a>
             <a href="#" className="text-gray-900 hover:text-red-600">
               My Courses
             </a>

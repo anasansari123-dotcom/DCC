@@ -7,24 +7,15 @@ import Image from 'next/image';
 const slides = [
   {
     id: 1,
-    title: "Welcome to Digital Career Center",
-    subtitle: "Transform Your Career with Expert-Led Courses",
-    description: "Master essential skills and advance your professional journey with our comprehensive course bundles.",
-    image: "/Banner2.jpg"
+     image: "/banner3.png"
   },
   {
     id: 2,
-    title: "Professional Development Made Easy",
-    subtitle: "Learn at Your Own Pace",
-    description: "Access high-quality content designed by industry experts to help you succeed in today's competitive market.",
-    image: "/banner2.jpg"
+       image: "/banner5.jpg"
   },
   {
     id: 3,
-    title: "Join Thousands of Successful Learners",
-    subtitle: "Start Your Journey Today",
-    description: "Be part of a community that's already transforming their careers and achieving their professional goals.",
-    image: "/banner2.jpg"
+    image: "/banner4.jpg"
   }
 ];
 
@@ -32,6 +23,7 @@ export default function HomePage() {
   const [current, setCurrent] = useState(0);
   const [currentInstructor, setCurrentInstructor] = useState(0);
   const [currentPackage, setCurrentPackage] = useState(0);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const sliderRef = useRef(null);
@@ -40,7 +32,7 @@ export default function HomePage() {
 
   const packages = [
     {
-      title: "Bronze Bundle",
+      title: "Digital Starter Package (DSP)",
       courses: "4 Courses",
       hours: "21 Hours",
       enrollments: "140K+ Enrollments",
@@ -50,11 +42,14 @@ export default function HomePage() {
         "Live Q&A Support",
         "140K+ Students Enrolled",
         "DCC Certificate",
+        "Basic Support",
+        "Email Support",
+        "Community Access"
       ],
-      image: "/a2.png",
+      image: "/dsp.png",
     },
     {
-      title: "Silver Package",
+      title: "Advance Basic Computer (ABC)",
       courses: "14 Courses",
       hours: "52 Hours",
       enrollments: "90K+ Enrollments",
@@ -64,11 +59,14 @@ export default function HomePage() {
         "Live Q&A Support",
         "90K+ Students Enrolled",
         "DCC Certificate",
+        "Priority Support",
+        "Email Support",
+        "Community Access"
       ],
-      image: "/B1.png"
+      image: "/acb.png"
     },
     {
-      title: "Gold Package",
+      title: "Search Engine Optimization (SEO)",
       courses: "25 Courses",
       hours: "85 Hours",
       enrollments: "75K+ Enrollments",
@@ -79,11 +77,13 @@ export default function HomePage() {
         "75K+ Students Enrolled",
         "DCC Certificate",
         "Priority Support",
+        "1-on-1 Mentoring",
+        "Community Access"
       ],
-      image: "/C1.png"
+      image: "/seo.png"
     },
     {
-      title: "Platinum Package",
+      title: "Hindi Typing (HT)",
       courses: "40 Courses",
       hours: "120 Hours",
       enrollments: "50K+ Enrollments",
@@ -95,11 +95,12 @@ export default function HomePage() {
         "DCC Certificate",
         "Priority Support",
         "1-on-1 Mentoring",
+        "Career Guidance"
       ],
-      image: "/D1.png"
+      image: "/hindi.png"
     },
     {
-      title: "Diamond Package",
+      title: "Youtube Ads (YA)",
       courses: "60 Courses",
       hours: "180 Hours",
       enrollments: "25K+ Enrollments",
@@ -111,12 +112,12 @@ export default function HomePage() {
         "DCC Certificate",
         "Priority Support",
         "1-on-1 Mentoring",
-        "Career Guidance",
+        "Career Guidance"
       ],
-      image: "/E1.png"
+      image: "/you.png"
     },
     {
-      title: "Elite Package",
+      title: "Google Ads (GA)",
       courses: "80 Courses",
       hours: "250 Hours",
       enrollments: "15K+ Enrollments",
@@ -128,10 +129,9 @@ export default function HomePage() {
         "DCC Certificate",
         "Priority Support",
         "1-on-1 Mentoring",
-        "Career Guidance",
-        "Job Placement Assistance",
+        "Career Guidance"
       ],
-      image: "/F1.png"
+      image: "/google.png"
     },
   ];
 
@@ -144,6 +144,30 @@ export default function HomePage() {
     { name: "Mr Arham", role: "Instructor", img: "/arham finel pose.png" },
   ];
 
+  const testimonials = [
+    {
+      id: 1,
+      text: "This platform has helped me to overcome my fears and make the most out of given opportunities. If you wish to upskill yourself and acquire knowledge from top mentors then this is just the right platform for you.",
+      author: "Deepak Saini",
+      role: "Student",
+      rating: 5
+    },
+    {
+      id: 2,
+      text: "Digital Career Center completely transformed my life and helped me become the person I am today. I learned how to start my career and grow with the right guidance.",
+      author: "Aanu Shaco",
+      role: "Student",
+      rating: 5
+    },
+    {
+      id: 3,
+      text: "The instructors here are amazing and the course content is very practical. I got placed in a top company just after completing my course. Highly recommended!",
+      author: "Priya Sharma",
+      role: "Student",
+      rating: 5
+    }
+  ];
+
   const prevSlide = () => {
     setCurrent(current === 0 ? slides.length - 1 : current - 1);
   };
@@ -153,20 +177,42 @@ export default function HomePage() {
   };
 
   const nextInstructor = useCallback(() => {
-    setCurrentInstructor(prev => (prev + 1) % instructors.length);
+    setCurrentInstructor(prev => {
+      const maxIndex = Math.max(0, instructors.length - 3);
+      return prev >= maxIndex ? 0 : prev + 1;
+    });
   }, [instructors.length]);
 
   const prevInstructor = useCallback(() => {
-    setCurrentInstructor(prev => (prev - 1 + instructors.length) % instructors.length);
+    setCurrentInstructor(prev => {
+      const maxIndex = Math.max(0, instructors.length - 3);
+      return prev <= 0 ? maxIndex : prev - 1;
+    });
   }, [instructors.length]);
 
   const nextPackage = useCallback(() => {
-    setCurrentPackage(prev => (prev + 1) % packages.length);
+    setCurrentPackage(prev => {
+      // For mobile (1 card), maxIndex is packages.length - 1
+      // For desktop (2 cards), maxIndex is packages.length - 2
+      const maxIndex = Math.max(0, packages.length - 2);
+      return prev >= maxIndex ? 0 : prev + 1;
+    });
   }, [packages.length]);
 
   const prevPackage = useCallback(() => {
-    setCurrentPackage(prev => (prev - 1 + packages.length) % packages.length);
+    setCurrentPackage(prev => {
+      const maxIndex = Math.max(0, packages.length - 2);
+      return prev <= 0 ? maxIndex : prev - 1;
+    });
   }, [packages.length]);
+
+  const nextTestimonial = useCallback(() => {
+    setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
+  }, [testimonials.length]);
+
+  const prevTestimonial = useCallback(() => {
+    setCurrentTestimonial(prev => (prev - 1 + testimonials.length) % testimonials.length);
+  }, [testimonials.length]);
 
   // Touch handlers for mobile swipe
   const handleTouchStart = (e) => {
@@ -218,30 +264,46 @@ export default function HomePage() {
     };
   }, [nextPackage]);
 
+  // Auto-play for testimonials slider
+  useEffect(() => {
+    const testimonialAutoPlay = setInterval(() => {
+      nextTestimonial();
+    }, 6000);
+
+    return () => {
+      clearInterval(testimonialAutoPlay);
+    };
+  }, [nextTestimonial]);
+
+  // Auto-play for main slider
+  useEffect(() => {
+    const autoSlide = setInterval(() => {
+      setCurrent(prev => (prev + 1) % slides.length);
+    }, 4000);
+
+    return () => {
+      clearInterval(autoSlide);
+    };
+  }, [slides.length]);
+
   return (
-    <div className="w-full">
+    <div className="w-full bg-red-50">
       {/* Slider Section */}
-      <div className="relative w-full h-[400px] overflow-hidden">
+      <div className="relative w-full h-[500px] overflow-hidden">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
             className={`absolute inset-0 transition-opacity duration-500 ${index === current ? 'opacity-100' : 'opacity-0'
               }`}
           >
-            <div 
-              className="w-full h-full  bg-center bg-cover bg-no-repeat flex items-center relative"
-              style={{ backgroundImage: `url(${slide.image})` }}
-            >
-              {/* Overlay for better text readability */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-red-600/20"></div>
-              <div className="max-w-4xl mx-auto px-6 text-white relative z-10">
-                <h1 className="text-5xl font-bold mb-4">{slide.title}</h1>
-                <h2 className="text-2xl mb-4 text-red-200">{slide.subtitle}</h2>
-                <p className="text-lg text-gray-100 mb-8">{slide.description}</p>
-                <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-colors border-2 border-white">
-                  Get Started
-                </button>
-              </div>
+            <div className="w-full h-full flex items-center justify-center relative">
+              <Image
+                src={slide.image}
+                alt={`Slide ${slide.id}`}
+                fill
+                // className="object-cover"
+                priority={index === 0}
+              />
             </div>
           </div>
         ))}
@@ -274,61 +336,151 @@ export default function HomePage() {
       </div>
 
       {/* Stats Section */}
-      <div className="bg-white py-16 px-6">
+      <div className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-black mb-4">
               Why Choose Digital Career Center
               <div className="w-32 h-2 bg-red-600 mx-auto mt-2"></div>
             </h2>
+            <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+  Digital Career Center is the ideal platform to launch your digital career. 
+  We provide expert-led, practical training with live projects that ensure you gain 
+  real-world skills. Along with personalized mentorship, placement assistance, and 
+  flexible batch schedules, we make learning accessible for everyone. With affordable 
+  fees and a comprehensive curriculum, Digital Career Center equips you with the 
+  knowledge and confidence required for high-demand roles in digital marketing and 
+  related fields.
+</p>
+
           </div>
 
           {/* 3 Stats */}
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* card 1 */}
-            <div className="text-center">
-              <div className="w-20 h-20 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-black mb-2">Expert Instructors</h3>
-              <p className="text-gray-700">Learn from industry professionals with years of experience</p>
-            </div>
+          <div className="grid md:grid-cols-3 gap-10 mt-12">
+  {/* Card 1 */}
+  <div className="text-center p-6 rounded-lg ">
+    <div className="w-20 h-20 bg-red-600 rounded-full mx-auto mb-5 flex items-center justify-center">
+      <svg
+        className="w-10 h-10 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M12 6.253v13m0-13C10.832 5.477 
+             9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 
+             18.477 5.754 18 7.5 18s3.332.477 4.5 
+             1.253m0-13C13.168 5.477 14.754 5 
+             16.5 5c1.747 0 3.332.477 4.5 
+             1.253v13C19.832 18.477 18.246 18 
+             16.5 18c-1.746 0-3.332.477-4.5 1.253"
+        />
+      </svg>
+    </div>
+    <h3 className="text-xl font-bold text-gray-900 mb-3">
+      Expert Instructors
+    </h3>
+    <p className="text-gray-700 leading-relaxed">
+      Learn from seasoned professionals with real-world industry 
+      experience who provide hands-on training and personalized 
+      mentorship to help you succeed in your digital career.
+    </p>
+  </div>
 
-            {/* card 2 */}
-            <div className="text-center">
-              <div className="w-20 h-20 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-black mb-2">Flexible Learning</h3>
-              <p className="text-gray-700">Study at your own pace with 24/7 access to courses</p>
-            </div>
+  {/* Card 2 */}
+  <div className="text-center p-6 rounded-lg ">
+    <div className="w-20 h-20 bg-red-600 rounded-full mx-auto mb-5 flex items-center justify-center">
+      <svg
+        className="w-10 h-10 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 12l2 2 4-4m5.618-4.016A11.955 
+             11.955 0 0112 2.944a11.955 11.955 
+             0 01-8.618 3.04A12.02 12.02 0 
+             003 9c0 5.591 3.824 10.29 9 
+             11.622 5.176-1.332 9-6.03 
+             9-11.622 0-1.042-.133-2.052-.382-3.016z"
+        />
+      </svg>
+    </div>
+    <h3 className="text-xl font-bold text-gray-900 mb-3">
+      Flexible Learning
+    </h3>
+    <p className="text-gray-700 leading-relaxed">
+      We offer flexible learning options including online, offline, 
+      and self-paced classes, allowing you to balance studies with 
+      personal and professional commitments comfortably.
+    </p>
+  </div>
 
-            {/* card 3 */}
-            <div className="text-center">
-              <div className="w-20 h-20 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-black mb-2">Certification</h3>
-              <p className="text-gray-700">Earn recognized certificates to boost your career</p>
-            </div>
-          </div>
+  {/* Card 3 */}
+  <div className="text-center p-6 rounded-lg ">
+    <div className="w-20 h-20 bg-red-600 rounded-full mx-auto mb-5 flex items-center justify-center">
+      <svg
+        className="w-10 h-10 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 12l2 2 4-4M7.835 4.697a3.42 
+             3.42 0 001.946-.806 3.42 3.42 0 
+             014.438 0 3.42 3.42 0 001.946.806 
+             3.42 3.42 0 013.138 3.138 3.42 
+             3.42 0 00.806 1.946 3.42 3.42 
+             0 010 4.438 3.42 3.42 0 00-.806 
+             1.946 3.42 3.42 0 01-3.138 
+             3.138 3.42 3.42 0 00-1.946.806 
+             3.42 3.42 0 01-4.438 0 3.42 
+             3.42 0 00-1.946-.806 3.42 
+             3.42 0 01-3.138-3.138 3.42 
+             3.42 0 00-.806-1.946 3.42 
+             3.42 0 010-4.438 3.42 3.42 0 
+             00.806-1.946 3.42 3.42 0 
+             013.138-3.138z"
+        />
+      </svg>
+    </div>
+    <h3 className="text-xl font-bold text-gray-900 mb-3">
+      Certification
+    </h3>
+    <p className="text-gray-700 leading-relaxed">
+      Earn industry-recognized certification upon completion, 
+      validating your skills and boosting your credibility. 
+      Designed by experts, these certifications are highly valued 
+      by employers and help advance your career.
+    </p>
+  </div>
+</div>
 
           {/* Packages Section */}
-          <section className="py-16 bg-red-50">
-            <h2 className="text-3xl font-bold text-center mb-6 text-black">
-              Our Exclusive Packages
-            </h2>
-            <p className="text-center text-gray-700 max-w-2xl mx-auto mb-12">
-              With our exclusive packages, now you can be assured to acquire the best
-              knowledge and expertise from our team of experts. We believe you can
-              empower the world with industry-leading courses.
-            </p>
+          <section className="py-16">
+          <h2 className="text-3xl font-bold text-center mb-6 text-black">
+  Our Exclusive Packages
+</h2>
+<p className="text-center text-gray-700 max-w-3xl mx-auto mb-12 leading-relaxed">
+  Digital Career Center offers customized training packages designed to match 
+  different skill levels and career goals. Whether you are just starting out 
+  or looking to advance, choose from beginner to advanced programs such as 
+  Digital Marketing, Digital Starter Pack, Web Designing, Video Editing, SEO, 
+  and more. Each package provides hands-on experience through live projects, 
+  along with personalized mentorship, industry-recognized certification, and 
+  dedicated placement support—empowering you to effectively launch or grow your 
+  digital career.
+</p>
+
 
             {/* Packages Slider */}
             <div 
@@ -339,55 +491,74 @@ export default function HomePage() {
             >
               <div className="flex transition-transform duration-500 ease-in-out"
                 style={{ 
-                  transform: `translateX(-${currentPackage * 100}%)` 
+                  transform: `translateX(-${currentPackage * 50}%)` 
                 }}
               >
                 {packages.map((pkg, index) => (
                   <div
                     key={index}
-                    className="min-w-full flex-shrink-0 px-2 md:px-4"
+                    className="min-w-full sm:min-w-[50%] flex-shrink-0 px-2 sm:px-3 md:px-4"
                   >
-                    <div className="bg-white rounded-2xl shadow-lg overflow-hidden border h-full max-w-md mx-auto">
+                    <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border h-full max-w-sm mx-auto flex flex-col transform " style={{boxShadow: '0 20px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1)'}}>
                       {/* Image */}
-                      <div className="bg-gradient-to-r from-purple-100 to-pink-100 flex items-center justify-center h-40 md:h-52">
-                        <Image
+                      <div className="bg-gradient-to-r from-purple-100 to-pink-100 flex items-center justify-center h-32 sm:h-36 md:h-40 flex-shrink-0 relative overflow-hidden" style={{boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.1)'}}>
+                        <img
                           src={pkg.image}
                           alt={pkg.title}
-                          width={120}
-                          height={120}
-                          className="w-24 h-24 md:w-40 md:h-40 object-contain"
+                          width={200}
+                          height={160}
+                          className="w-28 h-24 sm:w-32 sm:h-28 md:w-50 md:h-42 object-contain transform hover:scale-110 transition-transform duration-300" 
+                          style={{filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))'}}
                         />
                       </div>
 
                       {/* Content */}
-                      <div className="p-4 md:p-6">
-                        <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{pkg.title}</h3>
+                      <div className="p-3 md:p-4 flex flex-col flex-grow bg-gradient-to-b from-gray-50 to-gray-200 relative" style={{boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1)'}}>
+                        {/* Title */}
+                        <h3 className="text-base md:text-lg font-bold mb-3 text-center text-gray-900">{pkg.title}</h3>
 
-                        <div className="flex flex-wrap items-center gap-2 md:gap-6 text-gray-700 text-xs md:text-sm mb-3 md:mb-4">
-                          <span className="flex items-center gap-1">📘 {pkg.courses}</span>
-                          <span className="flex items-center gap-1">⏳ {pkg.hours}</span>
-                          <span className="flex items-center gap-1">👥 {pkg.enrollments}</span>
+                        {/* Main content area */}
+                        <div className="flex flex-col sm:flex-row flex-grow">
+                          {/* Left side - Features */}
+                          <div className="flex-1 pr-0 sm:pr-3 mb-3 sm:mb-0">
+                            <ul className="space-y-1 text-gray-600 text-xs">
+                              {pkg.features.map((feature, i) => (
+                                <li key={i} className="flex items-center gap-1">
+                                  <span className="text-green-500 text-xs">✅</span>
+                                  <span className="text-xs">{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* Right side - Metrics */}
+                          <div className="flex flex-row sm:flex-col gap-1 text-gray-700 text-xs justify-center sm:justify-start">
+                            <div className="flex flex-col items-center bg-gradient-to-b from-blue-100 to-blue-200 px-2 py-1 rounded-lg min-w-[50px] sm:min-w-[60px] transform hover:scale-105 transition-transform duration-200" style={{boxShadow: '0 2px 4px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255,255,255,0.2)'}}>
+                              <span className="text-blue-600 text-sm">📘</span>
+                              <span className="font-medium text-center text-xs">{pkg.courses}</span>
+                            </div>
+                            <div className="flex flex-col items-center bg-gradient-to-b from-orange-100 to-orange-200 px-2 py-1 rounded-lg min-w-[50px] sm:min-w-[60px] transform hover:scale-105 transition-transform duration-200" style={{boxShadow: '0 2px 4px rgba(251, 146, 60, 0.3), inset 0 1px 0 rgba(255,255,255,0.2)'}}>
+                              <span className="text-orange-600 text-sm">⏳</span>
+                              <span className="font-medium text-center text-xs">{pkg.hours}</span>
+                            </div>
+                            <div className="flex flex-col items-center bg-gradient-to-b from-green-100 to-green-200 px-2 py-1 rounded-lg min-w-[50px] sm:min-w-[60px] transform hover:scale-105 transition-transform duration-200" style={{boxShadow: '0 2px 4px rgba(34, 197, 94, 0.3), inset 0 1px 0 rgba(255,255,255,0.2)'}}>
+                              <span className="text-green-600 text-sm">👥</span>
+                              <span className="font-medium text-center text-xs">{pkg.enrollments}</span>
+                            </div>
+                          </div>
                         </div>
 
-                        <ul className="space-y-1 md:space-y-2 mb-3 md:mb-4 text-gray-600 text-sm">
-                          {pkg.features.map((feature, i) => (
-                            <li key={i} className="flex items-start gap-2">
-                              <span className="text-green-500 mt-0.5">✅</span>
-                              <span className="text-xs md:text-sm">{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-                            <span className="text-xl md:text-2xl font-bold text-gray-900">
+                        {/* Bottom section - Pricing and Button */}
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-4 pt-3 border-t border-gray-200">
+                          <div className="flex items-center gap-2">
+                            <span className="text-lg md:text-xl font-bold text-gray-900">
                               {pkg.price}
                             </span>
-                            <span className="line-through text-gray-500 text-sm md:text-base">
+                            <span className="line-through text-gray-500 text-sm">
                               {pkg.oldPrice}
                             </span>
                           </div>
-                          <button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg shadow text-sm md:text-base w-full sm:w-auto border-2 border-red-600 hover:border-red-700">
+                          <button className="bg-gradient-to-b from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 text-white font-bold px-4 py-2 rounded-lg text-xs md:text-sm transition-all duration-300 w-full sm:w-auto transform hover:scale-105 hover:-translate-y-1" style={{boxShadow: '0 4px 8px rgba(220, 38, 38, 0.4), inset 0 1px 0 rgba(255,255,255,0.2)'}}>
                             View Details
                           </button>
                         </div>
@@ -414,7 +585,7 @@ export default function HomePage() {
 
             {/* Dots indicator */}
             <div className="flex justify-center mt-4 md:mt-6 space-x-2">
-              {packages.map((_, index) => (
+              {Array.from({ length: Math.max(1, packages.length - 1) }).map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentPackage(index)}
@@ -427,15 +598,26 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* How LeadsGuru Works Section */}
+      {/* How Digital Career Center Works Section */}
       <section className="py-16 px-6 text-center">
         <h2 className="text-3xl font-bold mb-12 relative inline-block text-black">
           How Digital Career Center Works
           <span className="block w-24 h-1 bg-red-600 mx-auto mt-2"></span>
         </h2>
+        
+        {/* Main Description */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            Digital Career Center is designed to empower learners with practical digital skills through a structured and supportive approach. First, students choose from tailored courses based on their career goals and skill levels. Expert instructors provide hands-on training, combining theoretical knowledge with real-world projects. Throughout the learning journey, students receive mentorship and personalized guidance to master essential digital tools and techniques. After course completion, career support services, including placement assistance, internships, and networking opportunities, help students transition smoothly into the digital job market.
+          </p>
+          <p className="text-lg text-gray-700 leading-relaxed">
+            The process emphasizes industry-relevant skills, flexible learning options, and ongoing support to ensure success in a competitive digital economy. This holistic model integrates training, mentorship, and employment readiness, making it an effective pathway for digital career growth.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
           {/* Card 1 */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center h-full">
             <img
               src="https://cdn-icons-png.flaticon.com/512/2965/2965278.png"
               alt="Educate"
@@ -443,14 +625,14 @@ export default function HomePage() {
               height={128}
               className="w-32 h-32 mb-6"
             />
-            <h3 className="text-xl font-semibold mb-2">Educate</h3>
-            <p className="text-gray-600">
-              From the best of the best trainers
+            <h3 className="text-xl font-semibold mb-4">Educate</h3>
+            <p className="text-gray-600 text-center leading-relaxed flex-grow">
+              Digital Career Center offers expert-led training to equip you with practical digital skills, flexible learning, and certification, preparing you for a successful career in the growing digital economy.
             </p>
           </div>
 
           {/* Card 2 */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center h-full">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4333/4333609.png"
               alt="Innovate"
@@ -458,14 +640,14 @@ export default function HomePage() {
               height={128}
               className="w-32 h-32 mb-6"
             />
-            <h3 className="text-xl font-semibold mb-2">Innovate</h3>
-            <p className="text-gray-600">
-              Attain sought-after knowledge for your professional growth
+            <h3 className="text-xl font-semibold mb-4">Innovate</h3>
+            <p className="text-gray-600 text-center leading-relaxed flex-grow">
+              At Digital Career Center, we embrace cutting-edge technology and creative learning methods like AI personalization, gamification, and immersive experiences to make education engaging, adaptive, and future-ready.
             </p>
           </div>
 
           {/* Card 3 */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center h-full">
             <img
               src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
               alt="Dominate"
@@ -473,20 +655,24 @@ export default function HomePage() {
               height={128}
               className="w-32 h-32 mb-6"
             />
-            <h3 className="text-xl font-semibold mb-2">Dominate</h3>
-            <p className="text-gray-600">
-              Make an impact with the help of best training programs
+            <h3 className="text-xl font-semibold mb-4">Dominate</h3>
+            <p className="text-gray-600 text-center leading-relaxed flex-grow">
+              Take control of your digital future with the skills and confidence gained at Digital Career Center, empowering you to excel and lead in the competitive digital landscape.
             </p>
           </div>
         </div>
       </section>
 
       {/* Why LeadsGuru Section */}
-      <section className="py-16 px-6 bg-gradient-to-b from-purple-100 to-purple-200">
-        <h2 className="text-3xl font-bold text-center mb-12 relative inline-block text-black">
+      <section className="py-16 px-6">
+        <h2 className="text-3xl  font-bold text-center mb-12 mx-auto inline-block text-black">
           Why Digital Career Center
           <span className="block w-24 h-1 bg-red-600 mx-auto mt-2"></span>
         </h2>
+        <div className="max-w-4xl mb-16">
+          <p className="text-lg text-gray-700 leading-relaxed mb-8">
+          Digital Career Center stands out by offering a blend of expert mentorship, hands-on projects, flexible learning, and guaranteed placement support, ensuring learners not only gain in-demand digital skills but also confidently transition into successful careers. Its unique focus on personalized guidance and community engagement creates a supportive environment for growth and job readiness.          </p>
+        </div>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left side - Points */}
           <div className="space-y-6">
@@ -546,42 +732,46 @@ export default function HomePage() {
           {/* Right side - Illustration */}
           <div className="flex justify-center">
             <img
-              src="https://cdni.iconscout.com/illustration/premium/thumb/confused-girl-illustration-download-in-svg-png-gif-file-formats--question-female-woman-people-pack-illustrations-4228788.png"
+              src="/E1.png"
               alt="Confused girl"
-              width={320}
-              height={320}
-              className="w-80 h-auto"
+              className="w-100 h-110"
             />
           </div>
         </div>
       </section>
 
       {/* Instructors Section with Looping Card Slider */}
-      <section className="py-16 px-6 bg-red-50 text-center">
+      <section className="py-16 px-6 text-center">
         <h2 className="text-3xl font-bold mb-8 relative inline-block text-black">
           Our Instructors
           <span className="block w-24 h-1 bg-red-600 mx-auto mt-2"></span>
+          
         </h2>
+        <p className="text-gray-700 mb-16 w-2/3 mx-auto">
+        Our instructors are industry experts dedicated to providing personalized mentorship and practical training, ensuring every student gains the skills and confidence needed to excel in the digital world.              </p>
 
-        <div className="relative max-w-4xl mx-auto overflow-hidden">
+        <div className="relative max-w-6xl mx-auto overflow-hidden">
           <div className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentInstructor * 100}%)` }}
+            style={{ transform: `translateX(-${currentInstructor * 33.333}%)` }}
           >
             {instructors.map((ins, idx) => (
               <div
                 key={idx}
-                className="min-w-full flex-shrink-0 px-4"
+                className="min-w-[33.333%] flex-shrink-0 px-4"
               >
-                <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center transition-transform duration-300 hover:scale-105">
-                  <Image
-                    src={ins.img}
-                    alt={ins.name}
-                    width={160}
-                    height={160}
-                    className="rounded-full w-40 h-40 object-cover mb-4"
-                  />
-                  <h3 className="font-bold text-xl">{ins.name}</h3>
-                  <p className="text-gray-600">{ins.role}</p>
+                <div className="bg-gradient-to-b from-gray-200 to-gray-400 rounded-xl shadow-2xl p-6 flex flex-col items-center transition-all " style={{boxShadow: '0 20px 40px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(255,255,255,0.2)'}}>
+                  <div className="relative mb-4">
+                    <Image
+                      src={ins.img}
+                      alt={ins.name}
+                      width={200}
+                      height={200}
+                      className="rounded-full w-48 h-48 object-cover transform hover:scale-110 transition-transform duration-300" 
+                      style={{filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.3))'}}
+                    />
+                  </div>
+                  <h3 className="font-bold text-xl text-center mb-2">{ins.name}</h3>
+                  <p className="text-gray-600 text-center">{ins.role}</p>
                 </div>
               </div>
             ))}
@@ -604,7 +794,7 @@ export default function HomePage() {
 
         {/* Dots indicator */}
         <div className="flex justify-center mt-6 space-x-2">
-          {instructors.map((_, index) => (
+          {Array.from({ length: Math.max(1, instructors.length - 2) }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentInstructor(index)}
@@ -615,28 +805,104 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Alumni Section */}
-      <section className="py-16 px-6 text-center bg-red-50">
-        <h2 className="text-3xl font-bold mb-8 relative inline-block text-black">
-          Hear from Our Alumni
+      {/* Testimonials Section */}
+      <section className="py-16 px-6" style={{ backgroundColor: '#f8f4ff' }}>
+        <h2 className="text-3xl font-bold mb-12 text-center text-black">
+          Hear from Our Success Stories
           <span className="block w-24 h-1 bg-red-600 mx-auto mt-2"></span>
         </h2>
 
-        <div className="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md flex flex-col md:flex-row items-center gap-6">
-          <Image
-            src="/images/alumni.jpg"
-            alt="Alumni"
-            width={128}
-            height={128}
-            className="rounded-full w-32 h-32 object-cover"
-          />
-          <div className="text-left">
-            <p className="italic text-gray-700">
-              &ldquo;Digital Career Center completely transformed my life and helped me become the
-              person I am today. I learned how to start my career and grow with
-              the right guidance.&rdquo;
-            </p>
-            <h4 className="mt-4 font-bold text-lg">Aanu Shaco</h4>
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-8">
+            {/* Left side - Person pointing */}
+            <div className="flex-shrink-0 lg:w-1/3">
+              <div className="relative">
+                <div className="w-64 h-64 mx-auto relative">
+                  {/* Background circle */}
+                  <div className="absolute inset-0 bg-purple-200 rounded-full opacity-30"></div>
+                  {/* Person image placeholder - you can replace with actual image */}
+                  <div className="absolute inset-4 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center">
+                    <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-lg">
+                      <svg className="w-16 h-16 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  {/* Pointing gesture */}
+                  <div className="absolute right-8 top-1/2 transform -translate-y-1/2">
+                    <div className="w-8 h-8 bg-purple-300 rounded-full flex items-center justify-center">
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right side - Testimonial box */}
+            <div className="flex-1 lg:w-2/3">
+              <div className="bg-white rounded-2xl shadow-xl p-8 relative" style={{ backgroundColor: '#f8f4ff' }}>
+                {/* Navigation arrows */}
+                <div className="absolute top-6 right-6 flex gap-2">
+                  <button
+                    onClick={prevTestimonial}
+                    className="w-8 h-8 bg-purple-100 hover:bg-purple-200 rounded-full flex items-center justify-center transition-colors"
+                  >
+                    <FaChevronLeft className="text-red-600 text-sm" />
+                  </button>
+                  <button
+                    onClick={nextTestimonial}
+                    className="w-8 h-8 bg-purple-100 hover:bg-purple-200 rounded-full flex items-center justify-center transition-colors"
+                  >
+                    <FaChevronRight className="text-red-600 text-sm" />
+                  </button>
+                </div>
+
+                {/* Star rating */}
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  ))}
+                </div>
+
+                {/* Testimonial text */}
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  {testimonials[currentTestimonial].text.split('.')[0] + '.'}
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  {testimonials[currentTestimonial].text.split('.').slice(1).join('.').trim()}
+                </p>
+
+                {/* Quote marks */}
+                <div className="absolute bottom-6 left-6">
+                  <svg className="w-12 h-12 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                  </svg>
+                </div>
+
+                {/* Author info */}
+                <div className="text-left pl-15">
+                  <h4 className="font-bold text-lg text-gray-900">{testimonials[currentTestimonial].author}</h4>
+                  <p className="text-gray-600">{testimonials[currentTestimonial].role}</p>
+                </div>
+              </div>
+
+              {/* Dots indicator */}
+              <div className="flex justify-center mt-6 space-x-2">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentTestimonial ? 'bg-red-600' : 'bg-gray-300'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

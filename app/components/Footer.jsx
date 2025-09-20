@@ -7,7 +7,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-10">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-5 gap-8">
         
         {/* Logo & About */}
         <div>
@@ -37,12 +37,12 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold text-lg mb-4 border-b border-red-500 inline-block">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-red-300 transition-colors">FAQ's</a></li>
-            <li><a href="#" className="hover:text-red-300 transition-colors">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-red-300 transition-colors">Terms & Conditions</a></li>
-            <li><a href="#" className="hover:text-red-300 transition-colors">End User Agreement</a></li>
-            <li className="text-gray-400">Disclaimer</li>
-            <li><a href="#" className="hover:text-red-300 transition-colors">Membership</a></li>
+            <li><a href="/" className="hover:text-red-300 transition-colors">Home</a></li>
+            <li><a href="/about" className="hover:text-red-300 transition-colors">About Us</a></li>
+            <li><a href="/blog" className="hover:text-red-300 transition-colors">Blog</a></li>
+            <li><a href="/contact" className="hover:text-red-300 transition-colors">Contact Us</a></li>
+            <li><a href="/login" className="hover:text-red-300 transition-colors">Login</a></li>
+            <li><a href="/signup" className="hover:text-red-300 transition-colors">Sign Up</a></li>
           </ul>
         </div>
 
@@ -50,31 +50,45 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold text-lg mb-4 border-b border-red-500 inline-block">Company</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-red-300 transition-colors">Blog</a></li>
-            <li><a href="#" className="hover:text-red-300 transition-colors">About</a></li>
-            <li><a href="#" className="hover:text-red-300 transition-colors">Contact</a></li>
-            <li><a href="#" className="hover:text-red-300 transition-colors">Refund Policy</a></li>
-            <li><a href="#" className="hover:text-red-300 transition-colors">Sitemap</a></li>
+            <li><a href="/about" className="hover:text-red-300 transition-colors">About Us</a></li>
+            <li><a href="/blog" className="hover:text-red-300 transition-colors">Blog</a></li>
+            <li><a href="/contact" className="hover:text-red-300 transition-colors">Contact Us</a></li>
+            <li><a href="/faq" className="hover:text-red-300 transition-colors">FAQ</a></li>
+            <li><a href="/privacy-policy" className="hover:text-red-300 transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms-and-conditions" className="hover:text-red-300 transition-colors">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        {/* Legal & Support */}
+        <div>
+          <h3 className="font-semibold text-lg mb-4 border-b border-red-500 inline-block">Legal & Support</h3>
+          <ul className="space-y-2 text-sm">
+            <li><a href="/privacy-policy" className="hover:text-red-300 transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms-and-conditions" className="hover:text-red-300 transition-colors">Terms & Conditions</a></li>
+            <li><a href="/refund-policy" className="hover:text-red-300 transition-colors">Refund Policy</a></li>
+            <li><a href="/faq" className="hover:text-red-300 transition-colors">FAQ</a></li>
+            <li><a href="/contact" className="hover:text-red-300 transition-colors">Support</a></li>
+            <li><a href="/blog" className="hover:text-red-300 transition-colors">Blog</a></li>
           </ul>
         </div>
 
         {/* Courses Package */}
         <div>
-          <h3 className="font-semibold text-lg mb-4 border-b border-red-500 inline-block">Courses Package</h3>
+          <h3 className="font-semibold text-lg mb-4 border-b border-red-500 inline-block">All Courses</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-red-300 transition-colors">Bronze Bundle</a></li>
-            <li><a href="#" className="hover:text-red-300 transition-colors">Silver Package</a></li>
-            <li><a href="#" className="hover:text-red-300 transition-colors">Gold Package</a></li>
-            <li><a href="#" className="hover:text-red-300 transition-colors">Platinum Package</a></li>
-            <li><a href="#" className="hover:text-red-300 transition-colors">Diamond Package</a></li>
-            <li><a href="#" className="hover:text-red-300 transition-colors">Digital Career Center Startup Package</a></li>
+            <li><a href="/BronzeBundle" className="hover:text-red-300 transition-colors">Digital Starter Package</a></li>
+            <li><a href="/silver" className="hover:text-red-300 transition-colors">Advance Basic Computer</a></li>
+            <li><a href="/gold" className="hover:text-red-300 transition-colors">Search Engine Optimization</a></li>
+            <li><a href="/platinum" className="hover:text-red-300 transition-colors">Hindi Typing</a></li>
+            <li><a href="/Diamond" className="hover:text-red-300 transition-colors">Youtube Ads</a></li>
+            <li><a href="/dcc" className="hover:text-red-300 transition-colors">Google Ads</a></li>
           </ul>
         </div>
       </div>
 
       {/* Bottom Section */}
       <div className="border-t border-red-500 mt-10 pt-6 text-center text-sm">
-        © 2025 DevSphere Solutions . All Rights Reserved.
+        © 2025 Design and Developed by <a href="https://www.devspheresolutions.in/" className="text-yellow-500"> DevSphere Solutions </a> . All Rights Reserved.
       </div>
 
       {/* Floating Buttons */}
