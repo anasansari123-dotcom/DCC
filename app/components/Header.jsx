@@ -7,11 +7,11 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="flex items-center justify-between px-6 py-4 shadow-sm bg-white border-b-2 border-red-600 relative">
+    <header className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 shadow-sm bg-white border-b-2 border-red-600 relative">
       {/* Logo */}
-      <div className="flex items-center space-x-3">
-        <img src="/logo.jpg" alt="Logo" className="w-16 h-16 rounded-full" />
-        <span className="text-lg md:text-xl font-bold text-gray-900">
+      <div className="flex items-center space-x-2 sm:space-x-3">
+        <img src="/logo.jpg" alt="Logo" className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full" />
+        <span className="text-sm sm:text-lg md:text-xl font-bold text-gray-900">
           Digital Career Center
         </span>
       </div>
@@ -83,70 +83,70 @@ const Header = () => {
       </nav>
 
       {/* Login/Signup (Desktop) */}
-      <div className="hidden md:flex bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-2 rounded-full transition-colors shadow-md hover:shadow-lg space-x-2">
-        <a href="/login" className="hover:underline">
+      <div className="hidden md:flex bg-red-600 hover:bg-red-700 text-white font-medium px-4 sm:px-6 py-2 rounded-full transition-colors shadow-md hover:shadow-lg space-x-2">
+        <a href="/login" className="hover:underline text-sm sm:text-base">
           Login
         </a>
         <span>/</span>
-        <a href="/signup" className="hover:underline">
+        <a href="/signup" className="hover:underline text-sm sm:text-base">
           Signup
         </a>
       </div>
 
       {/* Mobile Hamburger */}
       <button
-        className="md:hidden flex flex-col space-y-1.5"
+        className="md:hidden flex flex-col space-y-1.5 p-1"
         onClick={() => setMenuOpen(!menuOpen)}
       >
-        <span className="w-6 h-0.5 bg-gray-800"></span>
-        <span className="w-6 h-0.5 bg-gray-800"></span>
-        <span className="w-6 h-0.5 bg-gray-800"></span>
+        <span className="w-5 h-0.5 bg-gray-800"></span>
+        <span className="w-5 h-0.5 bg-gray-800"></span>
+        <span className="w-5 h-0.5 bg-gray-800"></span>
       </button>
 
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="absolute top-full left-0 w-full bg-white shadow-md border-t border-gray-200 md:hidden z-20">
           <nav className="flex flex-col p-4 space-y-3">
-            <a href="/" className="text-gray-900 hover:text-red-600">
+            <a href="/" className="text-gray-900 hover:text-red-600 text-sm sm:text-base py-1">
               Home
             </a>
             <div className="flex flex-col space-y-1">
-              <span className="font-medium text-gray-900">All Courses</span>
+              <span className="font-medium text-gray-900 text-sm sm:text-base">All Courses</span>
               <div className="pl-4 flex flex-col space-y-1">
-                <a href="/BronzeBundle" className="text-sm text-gray-700 hover:text-red-600">
-                  Bronze Bundle
+                <a href="/BronzeBundle" className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1">
+                Digital Starter Package
                 </a>
-                <a href="/silver" className="text-sm text-gray-700 hover:text-red-600">
-                  Silver Package
+                <a href="/silver" className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1">
+                Advance Basic Computer
                 </a>
-                <a href="/gold" className="text-sm text-gray-700 hover:text-red-600">
-                  Gold Package
+                <a href="/gold" className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1">
+                Search Engine Optimization
                 </a>
-                <a href="/platinum" className="text-sm text-gray-700 hover:text-red-600">
-                  Platinum Package
+                <a href="/platinum" className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1">
+                Hindi Typing
+                  </a>
+                <a href="/Diamond" className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1">
+                Youtube Ads
                 </a>
-                <a href="/Diamond" className="text-sm text-gray-700 hover:text-red-600">
-                  Diamond Package
-                </a>
-                <a href="/dcc" className="text-sm text-gray-700 hover:text-red-600">
-                  DCC Startup Package
+                <a href="/dcc" className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1">
+                Google Ads
                 </a>
               </div>
             </div>
-            <a href="/blog" className="text-gray-900 hover:text-red-600">
+            <a href="/blog" className="text-gray-900 hover:text-red-600 text-sm sm:text-base py-1">
               Blog
             </a>
-            <a href="#" className="text-gray-900 hover:text-red-600">
+            <a href="#" className="text-gray-900 hover:text-red-600 text-sm sm:text-base py-1">
               My Courses
             </a>
 
             {/* Login/Signup (Mobile) */}
-            <div className="bg-red-600 hover:bg-red-700 text-white font-medium px-4 py-2 rounded-full shadow-md text-center">
-              <a href="/login" className="hover:underline">
+            <div className="bg-red-600 hover:bg-red-700 text-white font-medium px-4 py-2 rounded-full shadow-md text-center mt-2">
+              <a href="/login" className="hover:underline text-sm">
                 Login
               </a>{" "}
               /{" "}
-              <a href="/signup" className="hover:underline">
+              <a href="/signup" className="hover:underline text-sm">
                 Signup
               </a>
             </div>
