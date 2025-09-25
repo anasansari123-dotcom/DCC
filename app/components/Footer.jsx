@@ -12,7 +12,7 @@ const Footer = () => {
         {/* Logo & About */}
         <div>
           <h2 className="text-lg sm:text-xl md:text-2xl font-bold flex items-center gap-2">
-                   <img src="./logo.jpg" alt=""  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full" />
+                   <img src="/logo.jpg" alt=""  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full" />
 
             Digital Career Center
           </h2>
@@ -24,12 +24,9 @@ const Footer = () => {
 
           {/* Social Icons */}
           <div className="flex gap-3 sm:gap-4 mt-4 sm:mt-5 text-lg sm:text-xl">
-            <a href="#" className="hover:text-red-400 transition-colors"><FaFacebookF /></a>
-            <a href="#" className="hover:text-red-400 transition-colors"><FaXTwitter /></a>
-            <a href="#" className="hover:text-red-400 transition-colors"><FaInstagram /></a>
-            <a href="#" className="hover:text-red-400 transition-colors"><FaYoutube /></a>
-            <a href="#" className="hover:text-red-400 transition-colors"><FaLinkedinIn /></a>
-            <a href="#" className="hover:text-red-400 transition-colors"><FaTelegramPlane /></a>
+            <a href="https://www.facebook.com/people/Digital-Career-Center/61565596980338/" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors"><FaFacebookF /></a>
+            <a href="https://www.instagram.com/digitalcareercenterofficial" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors"><FaInstagram /></a>
+            <a href="https://www.youtube.com/@DigitalCareercenter" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors"><FaYoutube /></a>
           </div>
         </div>
 
@@ -95,7 +92,7 @@ const Footer = () => {
       <div className="fixed bottom-4 right-4 sm:bottom-5 sm:right-5 flex flex-col gap-2 sm:gap-3">
         {/* Instagram Button */}
         <a 
-          href="https://instagram.com/your_instagram_handle" 
+          href="https://www.instagram.com/digitalcareercenterofficial" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="bg-gradient-to-r from-purple-500 to-pink-500 p-2 sm:p-3 rounded-full shadow-lg hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105"

@@ -290,7 +290,7 @@ export default function HomePage() {
     return () => {
       clearInterval(autoSlide);
     };
-  }, [slides.length]);
+  }, []);
 
   return (
     <div className="w-full bg-red-50">
@@ -513,7 +513,7 @@ export default function HomePage() {
                           alt={pkg.title}
                           width={200}
                           height={160}
-                          className="w-28 h-24 sm:w-32 sm:h-28 md:w-50 md:h-42 object-contain transform hover:scale-110 transition-transform duration-300" 
+                          className="w-56 h-30 sm:w-32 sm:h-28 md:w-50 md:h-42 object-contain transform hover:scale-110 transition-transform duration-300" 
                           style={{filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))'}}
                         />
                       </div>

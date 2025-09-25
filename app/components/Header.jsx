@@ -5,12 +5,35 @@ import Image from "next/image";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [coursesOpen, setCoursesOpen] = useState(false);
+  const [closeTimeout, setCloseTimeout] = useState(null);
+
+  // Handle dropdown hover enter
+  const handleMouseEnter = () => {
+    if (closeTimeout) {
+      clearTimeout(closeTimeout);
+      setCloseTimeout(null);
+    }
+    setCoursesOpen(true);
+  };
+
+  // Handle dropdown hover leave (with delay)
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setCoursesOpen(false);
+    }, 300); // 300ms delay to close
+    setCloseTimeout(timeout);
+  };
 
   return (
     <header className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 shadow-sm bg-white border-b-2 border-red-600 relative">
       {/* Logo */}
       <div className="flex items-center space-x-2 sm:space-x-3">
-        <img src="/logo.jpg" alt="Logo" className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full" />
+        <img
+          src="/logo.jpg"
+          alt="Logo"
+          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full"
+        />
         <span className="text-sm sm:text-lg md:text-xl font-bold text-gray-900">
           Digital Career Center
         </span>
@@ -26,8 +49,16 @@ const Header = () => {
         </a>
 
         {/* Dropdown */}
-        <div className="relative group">
-          <button className="text-gray-900 font-medium hover:text-red-600 transition-colors flex items-center">
+        <div
+          className="relative"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <button
+            className="text-gray-900 font-medium hover:text-red-600 transition-colors flex items-center"
+            aria-haspopup="menu"
+            aria-expanded={coursesOpen}
+          >
             All Courses
             <svg
               className="w-4 h-4 ml-1"
@@ -43,11 +74,15 @@ const Header = () => {
               />
             </svg>
           </button>
+
           {/* Dropdown Menu */}
           <div
-            className="absolute opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 
-            transition-all duration-300 ease-out transform bg-white shadow-md rounded-md mt-2 w-48 
-            border border-red-200 z-20"
+            className={`absolute transition-all duration-300 ease-out transform bg-white shadow-md rounded-md mt-2 w-48 border border-red-200 z-20
+              ${
+                coursesOpen
+                  ? "opacity-100 scale-100"
+                  : "opacity-0 scale-95 pointer-events-none"
+              }`}
           >
             {[
               { name: "Digital Starter Package", href: "/BronzeBundle" },
@@ -61,6 +96,7 @@ const Header = () => {
                 key={idx}
                 href={item.href}
                 className="block px-4 py-2 text-[12px] text-gray-900 hover:bg-red-50 hover:text-red-600 transition-colors"
+                onClick={() => setCoursesOpen(false)}
               >
                 {item.name}
               </a>
@@ -79,6 +115,12 @@ const Header = () => {
           className="text-gray-900 font-medium hover:text-red-600 transition-colors"
         >
           My Courses
+        </a>
+        <a
+          href="/crm"
+          className="text-gray-900 font-medium hover:text-red-600 transition-colors"
+        >
+          CRM
         </a>
       </nav>
 
@@ -107,37 +149,72 @@ const Header = () => {
       {menuOpen && (
         <div className="absolute top-full left-0 w-full bg-white shadow-md border-t border-gray-200 md:hidden z-20">
           <nav className="flex flex-col p-4 space-y-3">
-            <a href="/" className="text-gray-900 hover:text-red-600 text-sm sm:text-base py-1">
+            <a
+              href="/"
+              className="text-gray-900 hover:text-red-600 text-sm sm:text-base py-1"
+            >
               Home
             </a>
             <div className="flex flex-col space-y-1">
-              <span className="font-medium text-gray-900 text-sm sm:text-base">All Courses</span>
+              <span className="font-medium text-gray-900 text-sm sm:text-base">
+                All Courses
+              </span>
               <div className="pl-4 flex flex-col space-y-1">
-                <a href="/BronzeBundle" className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1">
-                Digital Starter Package
+                <a
+                  href="/BronzeBundle"
+                  className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1"
+                >
+                  Digital Starter Package
                 </a>
-                <a href="/silver" className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1">
-                Advance Basic Computer
+                <a
+                  href="/silver"
+                  className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1"
+                >
+                  Advance Basic Computer
                 </a>
-                <a href="/gold" className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1">
-                Search Engine Optimization
+                <a
+                  href="/gold"
+                  className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1"
+                >
+                  Search Engine Optimization
                 </a>
-                <a href="/platinum" className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1">
-                Hindi Typing
-                  </a>
-                <a href="/Diamond" className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1">
-                Youtube Ads
+                <a
+                  href="/platinum"
+                  className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1"
+                >
+                  Hindi Typing
                 </a>
-                <a href="/dcc" className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1">
-                Google Ads
+                <a
+                  href="/Diamond"
+                  className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1"
+                >
+                  Youtube Ads
+                </a>
+                <a
+                  href="/dcc"
+                  className="text-xs sm:text-sm text-gray-700 hover:text-red-600 py-1"
+                >
+                  Google Ads
                 </a>
               </div>
             </div>
-            <a href="/blog" className="text-gray-900 hover:text-red-600 text-sm sm:text-base py-1">
+            <a
+              href="/blog"
+              className="text-gray-900 hover:text-red-600 text-sm sm:text-base py-1"
+            >
               Blog
             </a>
-            <a href="#" className="text-gray-900 hover:text-red-600 text-sm sm:text-base py-1">
+            <a
+              href="#"
+              className="text-gray-900 hover:text-red-600 text-sm sm:text-base py-1"
+            >
               My Courses
+            </a>
+            <a
+              href="/crm"
+              className="text-gray-900 hover:text-red-600 text-sm sm:text-base py-1"
+            >
+              CRM
             </a>
 
             {/* Login/Signup (Mobile) */}
