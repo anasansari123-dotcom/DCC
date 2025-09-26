@@ -365,26 +365,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-8 sm:mt-12">
   {/* Card 1 */}
   <div className="text-center p-4 sm:p-6 rounded-lg">
-    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 rounded-full mx-auto mb-4 sm:mb-5 flex items-center justify-center">
-      <svg
-        className="w-8 h-8 sm:w-10 sm:h-10 text-white"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M12 6.253v13m0-13C10.832 5.477 
-             9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 
-             18.477 5.754 18 7.5 18s3.332.477 4.5 
-             1.253m0-13C13.168 5.477 14.754 5 
-             16.5 5c1.747 0 3.332.477 4.5 
-             1.253v13C19.832 18.477 18.246 18 
-             16.5 18c-1.746 0-3.332.477-4.5 1.253"
-        />
-      </svg>
+    <div className="w-16 h-16 sm:w-30 sm:h-30 bg-red-600 rounded-full mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+   <img src='/elearning.png' alt='Expert Instructors' className='w-8 h-8 sm:w-20 sm:h-20 text-white' />
     </div>
     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
       Expert Instructors
@@ -398,25 +380,8 @@ export default function HomePage() {
 
   {/* Card 2 */}
   <div className="text-center p-4 sm:p-6 rounded-lg">
-    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 rounded-full mx-auto mb-4 sm:mb-5 flex items-center justify-center">
-      <svg
-        className="w-8 h-8 sm:w-10 sm:h-10 text-white"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M9 12l2 2 4-4m5.618-4.016A11.955 
-             11.955 0 0112 2.944a11.955 11.955 
-             0 01-8.618 3.04A12.02 12.02 0 
-             003 9c0 5.591 3.824 10.29 9 
-             11.622 5.176-1.332 9-6.03 
-             9-11.622 0-1.042-.133-2.052-.382-3.016z"
-        />
-      </svg>
+  <div className="w-16 h-16 sm:w-30 sm:h-30 bg-red-600 rounded-full mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+  {/* <img src='/p.png' alt='Flexible Learning' className='w-8 h-8 sm:w-20 sm:h-20 text-white' /> */}
     </div>
     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
       Flexible Learning
@@ -430,8 +395,8 @@ export default function HomePage() {
 
   {/* Card 3 */}
   <div className="text-center p-4 sm:p-6 rounded-lg">
-    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 rounded-full mx-auto mb-4 sm:mb-5 flex items-center justify-center">
-      <svg
+  <div className="w-16 h-16 sm:w-30 sm:h-30 bg-red-600 rounded-full mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+  <svg
         className="w-8 h-8 sm:w-10 sm:h-10 text-white"
         fill="none"
         stroke="currentColor"
@@ -738,9 +703,9 @@ export default function HomePage() {
           {/* Right side - Illustration */}
           <div className="flex justify-center">
             <img
-              src="/E1.png"
-              alt="Confused girl"
-              className="w-64 h-72 sm:w-80 sm:h-90 md:w-100 md:h-110 object-contain"
+              src="/gif.gif"
+              alt="Animated illustration"
+              className="w-74 h-72 sm:w-80 sm:h-90 md:w-150 md:h-110 rounded-xl "
             />
           </div>
         </div>
@@ -943,11 +908,38 @@ export default function HomePage() {
 
       {/* Disclaimer Section */}
       <footer className="bg-red-600 text-center py-4 sm:py-6 mt-8 sm:mt-12">
-        <p className="text-xs sm:text-sm text-white max-w-3xl mx-auto px-4">
+        <p className="text-xs sm:text-sm text-white max-w-3xl mx-auto px-4 mb-4">
           Disclaimer: Digital Career Center is an independent training provider. All content
           and materials are for educational purposes only and do not guarantee
           job placement or career advancement.
         </p>
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+          <a 
+            href="/disclaimer" 
+            className="text-xs sm:text-sm text-white hover:text-gray-200 underline transition-colors duration-200"
+          >
+            Disclaimer
+          </a>
+         
+          <a 
+            href="/privacy-policy" 
+            className="text-xs sm:text-sm text-white hover:text-gray-200 underline transition-colors duration-200"
+          >
+            Privacy Policy
+          </a>
+          <a 
+            href="/terms-and-conditions" 
+            className="text-xs sm:text-sm text-white hover:text-gray-200 underline transition-colors duration-200"
+          >
+            Terms & Conditions
+          </a>
+          <a 
+            href="/refund-policy" 
+            className="text-xs sm:text-sm text-white hover:text-gray-200 underline transition-colors duration-200"
+          >
+            Refund Policy
+          </a>
+        </div>
       </footer>
     </div>
   );
