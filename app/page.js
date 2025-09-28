@@ -371,8 +371,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-8 sm:mt-12">
   {/* Card 1 */}
   <div className="text-center p-4 sm:p-6 rounded-lg">
-    <div className="w-16 h-16 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
-   <img src='/brief.gif' alt='Expert Instructors' className='w-8 h-8 sm:w-45 sm:h-40 text-white' />
+    <div className="w-30 h-30 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+   <img src='/brief.gif' alt='Expert Instructors' className='w-30 h-30 sm:w-45 sm:h-40 text-white' />
     </div>
     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
       Expert Instructors
@@ -386,8 +386,8 @@ export default function HomePage() {
 
   {/* Card 2 */}
   <div className="text-center p-4 sm:p-6 rounded-lg">
-  <div className="w-16 h-16 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
-   <img src='/learn.gif' alt='Expert Instructors' className='w-8 h-8 sm:w-45 sm:h-40 text-white' />
+  <div className="w-30 h-30 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+   <img src='/learn.gif' alt='Expert Instructors' className='w-30 h-30 sm:w-45 sm:h-40 text-white' />
     </div>
     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
       Flexible Learning
@@ -401,8 +401,8 @@ export default function HomePage() {
 
   {/* Card 3 */}
   <div className="text-center p-4 sm:p-6 rounded-lg">
-  <div className="w-16 h-16 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
-   <img src='/cerit.gif' alt='Expert Instructors' className='w-8 h-8 sm:w-45 sm:h-40 text-white' />
+  <div className="w-30 h-30 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+   <img src='/cerit.gif' alt='Expert Instructors' className='w-30 h-30 sm:w-45 sm:h-40 text-white' />
     </div>
     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
       Certification
@@ -579,8 +579,8 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 max-w-6xl mx-auto">
           {/* Card 1 */}
           <div className="flex flex-col items-center h-full">
-          <div className="w-16 h-16 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
-   <img src='/teacher.gif' alt='Expert Instructors' className='w-8 h-8 sm:w-45 sm:h-40 text-white' />
+          <div className="w-30 h-30 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+   <img src='/teacher.gif' alt='Expert Instructors' className='w-30 h-30 sm:w-45 sm:h-40 text-white' />
     </div>
             <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Educate</h3>
             <p className="text-sm sm:text-base text-gray-600 text-center leading-relaxed flex-grow">
@@ -590,8 +590,8 @@ export default function HomePage() {
 
           {/* Card 2 */}
           <div className="flex flex-col items-center h-full">
-          <div className="w-16 h-16 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
-   <img src='/cloud-computing.gif' alt='Expert Instructors' className='w-8 h-8 sm:w-45 sm:h-40 text-white' />
+          <div className="w-30 h-30 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+   <img src='/cloud-computing.gif' alt='Expert Instructors' className='w-30 h-30 sm:w-45 sm:h-40 text-white' />
     </div>
             <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Innovate</h3>
             <p className="text-sm sm:text-base text-gray-600 text-center leading-relaxed flex-grow">
@@ -601,8 +601,8 @@ export default function HomePage() {
 
           {/* Card 3 */}
           <div className="flex flex-col items-center h-full">
-          <div className="w-16 h-16 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
-   <img src='/rocket-ship.gif' alt='Expert Instructors' className='w-8 h-8 sm:w-45 sm:h-40 text-white' />
+          <div className="w-30 h-30 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+   <img src='/rocket-ship.gif' alt='Expert Instructors' className='w-30 h-30 sm:w-45 sm:h-40 text-white' />
     </div>
             <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Dominate</h3>
             <p className="text-sm sm:text-base text-gray-600 text-center leading-relaxed flex-grow">
