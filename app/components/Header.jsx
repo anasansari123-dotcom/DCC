@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <header className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 shadow-sm bg-white border-b-2 border-red-600 relative">
       {/* Logo */}
-      <div className="flex items-center space-x-2 sm:space-x-3">
+    <a href="/">  <div className="flex items-center space-x-2 sm:space-x-3">
         <img
           src="/logo.jpg"
           alt="Logo"
@@ -37,7 +37,7 @@ const Header = () => {
         <span className="text-sm sm:text-lg md:text-xl font-bold text-gray-900">
           Digital Career Center
         </span>
-      </div>
+      </div></a>
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex items-center space-x-8">

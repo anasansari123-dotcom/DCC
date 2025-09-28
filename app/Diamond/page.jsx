@@ -87,7 +87,7 @@ export default function BronzeBundlePage() {
       
       {/* Top Header Section */}
    <div className="bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-white">
-   <img src="/yous.jpg" alt="" className='w-full h-[500px] ' />
+   <img src="/yous.jpg" alt="" className='w-full h-[300px] md:h-[500px] md:w-full ' />
 
 </div>
 

@@ -17,8 +17,7 @@ export default function AboutPage() {
               About Digital Career Center
             </h1>
             <p className="text-xl md:text-2xl text-red-100 mb-8 max-w-4xl mx-auto">
-              Empowering individuals with digital skills for a brighter future. 
-              We're committed to providing quality education and career guidance.
+              Digital Career Center is a leading institute in Muzaffarnagar, dedicated to empowering students and professionals with practical digital skills. Since 2018, we have helped transform careers with hands-on training in digital marketing, computer courses, and web development, focusing on real-world earning opportunities.
             </p>
             <div className="w-32 h-2 bg-white mx-auto"></div>
           </div>
@@ -38,9 +37,7 @@ export default function AboutPage() {
                 <h2 className="text-3xl font-bold text-gray-800">Our Mission</h2>
               </div>
               <p className="text-gray-700 leading-relaxed text-lg">
-                To democratize digital education by providing accessible, high-quality training programs 
-                that equip individuals with practical skills needed to thrive in the digital economy. 
-                We believe everyone deserves the opportunity to build a successful career in technology.
+                Empowering students to build successful careers by providing practical digital skills training and work opportunities. Learning with earning is our guiding principle.
               </p>
             </div>
 
@@ -53,9 +50,7 @@ export default function AboutPage() {
                 <h2 className="text-3xl font-bold text-gray-800">Our Vision</h2>
               </div>
               <p className="text-gray-700 leading-relaxed text-lg">
-                To become India's leading digital education platform, creating a skilled workforce 
-                that drives innovation and economic growth. We envision a future where every individual 
-                has the digital literacy to succeed in an increasingly connected world.
+                To be the most trusted digital learning platform, enabling every learner in India to achieve professional growth, career stability, and real earning through technology-driven education.
               </p>
             </div>
           </div>
@@ -72,16 +67,12 @@ export default function AboutPage() {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Founded with a Purpose</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Our Story</h3>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Digital Career Center was founded in 2020 with a simple yet powerful vision: to bridge 
-                the digital skills gap in India. Our founders, experienced professionals from the tech 
-                industry, recognized the growing need for practical, job-ready digital skills.
+                Digital Career Center was founded in 2018 in Muzaffarnagar with a vision to empower youth with practical digital skills and career opportunities. Starting as a small training initiative, it has grown into a trusted center offering comprehensive courses in digital marketing, computer training, web development, and more.
               </p>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Starting as a small training center in Muzaffarnagar, we've grown to serve thousands 
-                of students across India through both online and offline programs. Our success is 
-                measured not just by the number of students we train, but by the careers we help launch.
+                Our journey is driven by the commitment to not just educate but enable earning, helping students transform their lives through technology-driven learning. We believe in Learning with Earning, making real career growth accessible for all.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 Today, we're proud to be one of the most trusted names in digital education, with 
@@ -92,19 +83,19 @@ export default function AboutPage() {
             
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center p-6 bg-red-50 rounded-xl">
-                <div className="text-4xl font-bold text-red-600 mb-2">500K+</div>
+                <div className="text-4xl font-bold text-red-600 mb-2">1000+</div>
                 <div className="text-gray-700">Students Trained</div>
               </div>
               <div className="text-center p-6 bg-red-50 rounded-xl">
-                <div className="text-4xl font-bold text-red-600 mb-2">50+</div>
+                <div className="text-4xl font-bold text-red-600 mb-2">10+</div>
                 <div className="text-gray-700">Expert Instructors</div>
               </div>
               <div className="text-center p-6 bg-red-50 rounded-xl">
-                <div className="text-4xl font-bold text-red-600 mb-2">95%</div>
+                <div className="text-4xl font-bold text-red-600 mb-2">90%</div>
                 <div className="text-gray-700">Success Rate</div>
               </div>
               <div className="text-center p-6 bg-red-50 rounded-xl">
-                <div className="text-4xl font-bold text-red-600 mb-2">4+</div>
+                <div className="text-4xl font-bold text-red-600 mb-2">6+</div>
                 <div className="text-gray-700">Years Experience</div>
               </div>
             </div>
@@ -118,7 +109,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Values</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The principles that guide everything we do at Digital Career Center
+              Our values are centered on integrity, practical learning, student empowerment, continuous growth, and a commitment to real-world career success through "Learning with Earning."
             </p>
             <div className="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
           </div>
@@ -130,8 +121,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-4">Excellence in Education</h3>
               <p className="text-gray-700">
-                We maintain the highest standards in our curriculum and teaching methods, 
-                ensuring every student receives quality education.
+                We are committed to fostering excellence and equity in education by ensuring every learner has the opportunity, support, and resources to reach their highest potential.
               </p>
             </div>
 
@@ -141,8 +131,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-4">Student-Centric Approach</h3>
               <p className="text-gray-700">
-                Our students are at the heart of everything we do. We tailor our programs 
-                to meet their unique needs and career goals.
+                Student-centric learning empowers students by prioritizing their interests, choices, and active participation, with teachers guiding and facilitating personalized, meaningful learning experiences.
               </p>
             </div>
 
@@ -152,8 +141,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-4">Industry Relevance</h3>
               <p className="text-gray-700">
-                We stay updated with industry trends and ensure our courses reflect 
-                real-world requirements and current technologies.
+                Aligning learning programs with real-world industry needs to equip students with skills and knowledge that ensure their success in the workforce.
               </p>
             </div>
 
@@ -163,8 +151,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-4">Accessibility</h3>
               <p className="text-gray-700">
-                We believe quality education should be accessible to everyone, 
-                regardless of their background or location.
+                Digital Career Center is committed to ensuring accessibility by providing inclusive digital learning experiences that are usable and beneficial for all individuals, including those with disabilities, following best accessibility standards and practices.
               </p>
             </div>
 
@@ -174,8 +161,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-4">Passion for Learning</h3>
               <p className="text-gray-700">
-                We foster a culture of continuous learning and growth, 
-                encouraging both students and staff to pursue excellence.
+                Passion for learning drives continuous growth and empowers individuals to gain new skills, adapt to change, and achieve lifelong personal and professional success.
               </p>
             </div>
 
@@ -199,7 +185,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">Why Choose Digital Career Center?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover what makes us the preferred choice for digital education
+              Choose Digital Career Center for expert-led, industry-aligned training that transforms skills into real job opportunities and lifelong career growth.
             </p>
             <div className="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
           </div>
@@ -212,8 +198,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">Proven Track Record</h3>
                 <p className="text-gray-700">
-                  With over 500,000 students trained and a 95% success rate, we have a proven 
-                  track record of helping students achieve their career goals.
+                  Digital Career Center has a proven track record of successfully training thousands of students since 2018, with many securing jobs and earning real-world digital skills that meet industry demands.
                 </p>
               </div>
             </div>
@@ -225,8 +210,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">Expert Instructors</h3>
                 <p className="text-gray-700">
-                  Learn from industry experts with years of real-world experience who are 
-                  passionate about sharing their knowledge.
+                  Digital Career Center instructors are industry experts with advanced qualifications and real-world experience, dedicated to providing practical, hands-on training that ensures student success and career readiness.
                 </p>
               </div>
             </div>
@@ -238,8 +222,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">Career Support</h3>
                 <p className="text-gray-700">
-                  We provide comprehensive career support including resume building, 
-                  interview preparation, and job placement assistance.
+                  We offer dedicated career support, including personalized coaching, resume building, interview preparation, job placement assistance, and continuous guidance to help students successfully launch and grow their careers.
                 </p>
               </div>
             </div>
@@ -251,8 +234,7 @@ export default function AboutPage() {
               <div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">Flexible Learning</h3>
                 <p className="text-gray-700">
-                  Choose from online, offline, or hybrid learning options that fit your 
-                  schedule and learning preferences.
+                  Flexible Learning at Digital Career Center means offering courses in online, offline, and hybrid formats, allowing students to learn anytime and anywhere, fitting education into their busy lives.
                 </p>
               </div>
             </div>
@@ -265,7 +247,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl font-bold mb-6">Ready to Start Your Digital Journey?</h2>
           <p className="text-xl text-red-100 mb-8">
-            Join thousands of successful students who have transformed their careers with our programs.
+            Join Digital Career Center and unlock your potential with expert training, flexible learning, and career support.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

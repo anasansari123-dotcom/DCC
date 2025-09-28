@@ -27,6 +27,7 @@ const Footer = () => {
             <a href="https://www.facebook.com/people/Digital-Career-Center/61565596980338/" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors"><FaFacebookF /></a>
             <a href="https://www.instagram.com/digitalcareercenterofficial" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors"><FaInstagram /></a>
             <a href="https://www.youtube.com/@DigitalCareercenter" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors"><FaYoutube /></a>
+            <a href="https://t.me/digitalcareercentermzn" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition-colors"><FaTelegramPlane /></a>
           </div>
         </div>
 
@@ -34,10 +35,10 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold text-base sm:text-lg mb-3 sm:mb-4 border-b border-red-500 inline-block">Quick Links</h3>
           <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
-            <li><a href="/" className="hover:text-red-300 transition-colors">Home</a></li>
+            {/* <li><a href="/" className="hover:text-red-300 transition-colors">Home</a></li>
             <li><a href="/about" className="hover:text-red-300 transition-colors">About Us</a></li>
             <li><a href="/blog" className="hover:text-red-300 transition-colors">Blog</a></li>
-            <li><a href="/contact" className="hover:text-red-300 transition-colors">Contact Us</a></li>
+            <li><a href="/contact" className="hover:text-red-300 transition-colors">Contact Us</a></li> */}
             <li><a href="/login" className="hover:text-red-300 transition-colors">Login</a></li>
             <li><a href="/signup" className="hover:text-red-300 transition-colors">Sign Up</a></li>
           </ul>
@@ -103,7 +104,7 @@ const Footer = () => {
         
         {/* WhatsApp Button */}
         <a 
-          href="https://wa.me/1234567890" 
+          href="https://wa.me/917599863007" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="bg-green-500 p-2 sm:p-3 rounded-full shadow-lg hover:bg-green-600 transition-all transform hover:scale-105"

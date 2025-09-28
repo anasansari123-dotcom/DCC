@@ -56,8 +56,7 @@ export default function ContactPage() {
               Contact Us
             </h1>
             <p className="text-xl md:text-2xl text-red-100 mb-8 max-w-4xl mx-auto">
-              Get in touch with us! We're here to help you start your digital career journey. 
-              Reach out for any questions, support, or information about our courses.
+              Get in touch with us today to learn more and start your journey with Digital Career Center.
             </p>
             <div className="w-32 h-2 bg-white mx-auto"></div>
           </div>
@@ -74,8 +73,7 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-6">Get in Touch</h2>
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  We're always happy to hear from you. Whether you have questions about our courses, 
-                  need technical support, or want to discuss career opportunities, we're here to help.
+                  Start your digital journey with Digital Career Center and unlock your full potential with expert training, flexible learning options, and dedicated career support tailored for real-world success.
                 </p>
               </div>
 
@@ -88,9 +86,9 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-xl font-semibold text-gray-800 mb-2">Our Location</h3>
                     <p className="text-gray-600">
-                      Digital Career Center<br />
-                      Muzaffarnagar, Uttar Pradesh<br />
-                      India - 251001
+                      1st Floor, Raja Ji Market, Near M.B Public School<br />
+                      Mimlana Road, Muzaffarnagar 251002<br />
+                      Uttar Pradesh, India
                     </p>
                   </div>
                 </div>
@@ -102,11 +100,11 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-xl font-semibold text-gray-800 mb-2">Phone Numbers</h3>
                     <p className="text-gray-600">
-                      <a href="tel:+919876543210" className="hover:text-red-600 transition-colors">
-                        +91 98765 43210
+                      <a href="tel:+917599863007" className="hover:text-red-600 transition-colors">
+                        +91- 75998 63007
                       </a><br />
-                      <a href="tel:+919876543211" className="hover:text-red-600 transition-colors">
-                        +91 98765 43211
+                      <a href="tel:+918218971413" className="hover:text-red-600 transition-colors">
+                        +91- 82189 71413
                       </a>
                     </p>
                   </div>
@@ -121,9 +119,6 @@ export default function ContactPage() {
                     <p className="text-gray-600">
                       <a href="mailto:info@digitalcareercenter.com" className="hover:text-red-600 transition-colors">
                         info@digitalcareercenter.com
-                      </a><br />
-                      <a href="mailto:support@digitalcareercenter.com" className="hover:text-red-600 transition-colors">
-                        support@digitalcareercenter.com
                       </a>
                     </p>
                   </div>
@@ -148,22 +143,19 @@ export default function ContactPage() {
               <div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">Follow Us</h3>
                 <div className="flex gap-4">
-                  <a href="#" className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                  <a href="https://www.facebook.com/people/Digital-Career-Center/61565596980338/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
                     <FaFacebookF />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
-                    <FaXTwitter />
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                  <a href="https://www.instagram.com/digitalcareercenterofficial" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
                     <FaInstagram />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                  <a href="https://www.youtube.com/@DigitalCareercenter" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
                     <FaYoutube />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                  <a href="https://www.linkedin.com/company/digital-career-center" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
                     <FaLinkedinIn />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                  <a href="https://t.me/digitalcareercentermzn" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
                     <FaTelegramPlane />
                   </a>
                 </div>
@@ -317,7 +309,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800">Digital Career Center</h3>
-                    <p className="text-gray-600">Muzaffarnagar, Uttar Pradesh, India - 251001</p>
+                    <p className="text-gray-600">1st Floor, Raja Ji Market, Near M.B Public School, Mimlana Road, Muzaffarnagar 251002, Uttar Pradesh, India</p>
                   </div>
                 </div>
                 
@@ -361,8 +353,11 @@ export default function ContactPage() {
               <FaPhone className="w-8 h-8 text-red-600 mx-auto mb-3" />
               <h4 className="font-semibold text-gray-800 mb-2">Contact Info</h4>
               <p className="text-sm text-gray-600">
-                <a href="tel:+919876543210" className="hover:text-red-600 transition-colors">
-                  +91 98765 43210
+                <a href="tel:+917599863007" className="hover:text-red-600 transition-colors">
+                  +91- 75998 63007
+                </a><br />
+                <a href="tel:+918218971413" className="hover:text-red-600 transition-colors">
+                  +91- 82189 71413
                 </a><br />
                 <a href="mailto:info@digitalcareercenter.com" className="hover:text-red-600 transition-colors">
                   info@digitalcareercenter.com

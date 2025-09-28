@@ -47,6 +47,7 @@ export default function HomePage() {
         "Community Access"
       ],
       image: "/dsp.png",
+      link: "/BronzeBundle"
     },
     {
       title: "Advance Basic Computer (ABC)",
@@ -63,7 +64,8 @@ export default function HomePage() {
         "Email Support",
         "Community Access"
       ],
-      image: "/acb.png"
+      image: "/acb.png",
+      link: "/silver"
     },
     {
       title: "Search Engine Optimization (SEO)",
@@ -80,7 +82,8 @@ export default function HomePage() {
         "1-on-1 Mentoring",
         "Community Access"
       ],
-      image: "/seo.png"
+      image: "/seo.png",
+      link: "/gold"
     },
     {
       title: "Hindi Typing (HT)",
@@ -97,7 +100,8 @@ export default function HomePage() {
         "1-on-1 Mentoring",
         "Career Guidance"
       ],
-      image: "/hindi.png"
+      image: "/hindi.png",
+      link: "/platinum"
     },
     {
       title: "Youtube Ads (YA)",
@@ -114,7 +118,8 @@ export default function HomePage() {
         "1-on-1 Mentoring",
         "Career Guidance"
       ],
-      image: "/you.png"
+      image: "/you.png",
+      link: "/Diamond"
     },
     {
       title: "Google Ads (GA)",
@@ -131,7 +136,8 @@ export default function HomePage() {
         "1-on-1 Mentoring",
         "Career Guidance"
       ],
-      image: "/google.png"
+      image: "/google.png",
+      link: "/dcc"
     },
   ];
 
@@ -293,16 +299,16 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="w-full bg-red-50">
+    <div className="w-full">
       {/* Slider Section */}
-      <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
+      <div className="relative w-full h-[200px] sm:h-[400px] md:h-[500px] overflow-hidden">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
             className={`absolute inset-0 transition-opacity duration-500 ${index === current ? 'opacity-100' : 'opacity-0'
               }`}
           >
-            <div className="w-full h-full flex items-center justify-center relative">
+            <div className="w-full h-[85%] md:w-full md:h-full flex items-center justify-center relative">
               <Image
                 src={slide.image}
                 alt={`Slide ${slide.id}`}
@@ -347,7 +353,7 @@ export default function HomePage() {
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4">
               Why Choose Digital Career Center
-              <div className="w-24 sm:w-32 h-1 sm:h-2 bg-red-600 mx-auto mt-2"></div>
+              <div className="w-24 sm:w-148 h-1 sm:h-2 bg-red-600 mx-auto mt-2"></div>
             </h2>
             <p className="text-base sm:text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed px-2">
   Digital Career Center is the ideal platform to launch your digital career. 
@@ -365,8 +371,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-8 sm:mt-12">
   {/* Card 1 */}
   <div className="text-center p-4 sm:p-6 rounded-lg">
-    <div className="w-16 h-16 sm:w-30 sm:h-30 bg-red-600 rounded-full mx-auto mb-4 sm:mb-5 flex items-center justify-center">
-   <img src='/elearning.png' alt='Expert Instructors' className='w-8 h-8 sm:w-20 sm:h-20 text-white' />
+    <div className="w-16 h-16 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+   <img src='/brief.gif' alt='Expert Instructors' className='w-8 h-8 sm:w-45 sm:h-40 text-white' />
     </div>
     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
       Expert Instructors
@@ -380,8 +386,8 @@ export default function HomePage() {
 
   {/* Card 2 */}
   <div className="text-center p-4 sm:p-6 rounded-lg">
-  <div className="w-16 h-16 sm:w-30 sm:h-30 bg-red-600 rounded-full mx-auto mb-4 sm:mb-5 flex items-center justify-center">
-  {/* <img src='/p.png' alt='Flexible Learning' className='w-8 h-8 sm:w-20 sm:h-20 text-white' /> */}
+  <div className="w-16 h-16 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+   <img src='/learn.gif' alt='Expert Instructors' className='w-8 h-8 sm:w-45 sm:h-40 text-white' />
     </div>
     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
       Flexible Learning
@@ -395,34 +401,8 @@ export default function HomePage() {
 
   {/* Card 3 */}
   <div className="text-center p-4 sm:p-6 rounded-lg">
-  <div className="w-16 h-16 sm:w-30 sm:h-30 bg-red-600 rounded-full mx-auto mb-4 sm:mb-5 flex items-center justify-center">
-  <svg
-        className="w-8 h-8 sm:w-10 sm:h-10 text-white"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M9 12l2 2 4-4M7.835 4.697a3.42 
-             3.42 0 001.946-.806 3.42 3.42 0 
-             014.438 0 3.42 3.42 0 001.946.806 
-             3.42 3.42 0 013.138 3.138 3.42 
-             3.42 0 00.806 1.946 3.42 3.42 
-             0 010 4.438 3.42 3.42 0 00-.806 
-             1.946 3.42 3.42 0 01-3.138 
-             3.138 3.42 3.42 0 00-1.946.806 
-             3.42 3.42 0 01-4.438 0 3.42 
-             3.42 0 00-1.946-.806 3.42 
-             3.42 0 01-3.138-3.138 3.42 
-             3.42 0 00-.806-1.946 3.42 
-             3.42 0 010-4.438 3.42 3.42 0 
-             00.806-1.946 3.42 3.42 0 
-             013.138-3.138z"
-        />
-      </svg>
+  <div className="w-16 h-16 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+   <img src='/cerit.gif' alt='Expert Instructors' className='w-8 h-8 sm:w-45 sm:h-40 text-white' />
     </div>
     <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
       Certification
@@ -437,9 +417,11 @@ export default function HomePage() {
 </div>
 
           {/* Packages Section */}
-          <section className="py-8 sm:py-12 md:py-16">
+          <section className="py-8 sm:py-12 md:pt-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6 text-black px-4">
   Our Exclusive Packages
+  <span className="block w-20 sm:w-88 h-1 bg-red-600 mx-auto mt-2"></span>
+
 </h2>
 <p className="text-center text-sm sm:text-base text-gray-700 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4">
   Digital Career Center offers customized training packages designed to match 
@@ -468,7 +450,7 @@ export default function HomePage() {
                 {packages.map((pkg, index) => (
                   <div
                     key={index}
-                    className="min-w-full sm:min-w-[50%] flex-shrink-0 px-1 sm:px-2 md:px-4"
+                    className="min-w-full sm:min-w-[50%] flex-shrink-0 px-1 sm:px-0 md:px-1"
                   >
                     <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border h-full max-w-sm mx-auto flex flex-col transform " style={{boxShadow: '0 20px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1)'}}>
                       {/* Image */}
@@ -486,7 +468,11 @@ export default function HomePage() {
                       {/* Content */}
                       <div className="p-3 md:p-4 flex flex-col flex-grow bg-gradient-to-b from-gray-50 to-gray-200 relative" style={{boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.1)'}}>
                         {/* Title */}
-                        <h3 className="text-sm sm:text-base md:text-lg font-bold mb-3 text-center text-gray-900">{pkg.title}</h3>
+                        <h3 className="text-sm sm:text-base md:text-lg font-bold mb-3 text-center text-gray-900">
+                          <a href={pkg.link} className="hover:text-red-600 transition-colors">
+                            {pkg.title}
+                          </a>
+                        </h3>
 
                         {/* Main content area */}
                         <div className="flex flex-row flex-grow">
@@ -529,9 +515,13 @@ export default function HomePage() {
                               {pkg.oldPrice}
                             </span>
                           </div>
-                          <button className="bg-gradient-to-b from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 text-white font-bold px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm transition-all duration-300 w-full sm:w-auto transform hover:scale-105 hover:-translate-y-1" style={{boxShadow: '0 4px 8px rgba(220, 38, 38, 0.4), inset 0 1px 0 rgba(255,255,255,0.2)'}}>
+                          <a 
+                            href={pkg.link}
+                            className="bg-gradient-to-b from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 text-white font-bold px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm transition-all duration-300 w-full sm:w-auto transform hover:scale-105 hover:-translate-y-1 inline-block text-center" 
+                            style={{boxShadow: '0 4px 8px rgba(220, 38, 38, 0.4), inset 0 1px 0 rgba(255,255,255,0.2)'}}
+                          >
                             View Details
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -570,10 +560,10 @@ export default function HomePage() {
       </div>
 
       {/* How Digital Career Center Works Section */}
-      <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 text-center">
+      <section className="py-8 sm:pb-12 md:pb-16 px-4 sm:px-6 text-center">
         <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 relative inline-block text-black">
           How Digital Career Center Works
-          <span className="block w-20 sm:w-24 h-1 bg-red-600 mx-auto mt-2"></span>
+          <span className="block w-20 sm:w-118 h-1 bg-red-600 mx-auto mt-2"></span>
         </h2>
         
         {/* Main Description */}
@@ -589,13 +579,9 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 max-w-6xl mx-auto">
           {/* Card 1 */}
           <div className="flex flex-col items-center h-full">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/2965/2965278.png"
-              alt="Educate"
-              width={128}
-              height={128}
-              className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-4 sm:mb-6"
-            />
+          <div className="w-16 h-16 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+   <img src='/teacher.gif' alt='Expert Instructors' className='w-8 h-8 sm:w-45 sm:h-40 text-white' />
+    </div>
             <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Educate</h3>
             <p className="text-sm sm:text-base text-gray-600 text-center leading-relaxed flex-grow">
               Digital Career Center offers expert-led training to equip you with practical digital skills, flexible learning, and certification, preparing you for a successful career in the growing digital economy.
@@ -604,13 +590,9 @@ export default function HomePage() {
 
           {/* Card 2 */}
           <div className="flex flex-col items-center h-full">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/4333/4333609.png"
-              alt="Innovate"
-              width={128}
-              height={128}
-              className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-4 sm:mb-6"
-            />
+          <div className="w-16 h-16 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+   <img src='/cloud-computing.gif' alt='Expert Instructors' className='w-8 h-8 sm:w-45 sm:h-40 text-white' />
+    </div>
             <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Innovate</h3>
             <p className="text-sm sm:text-base text-gray-600 text-center leading-relaxed flex-grow">
               At Digital Career Center, we embrace cutting-edge technology and creative learning methods like AI personalization, gamification, and immersive experiences to make education engaging, adaptive, and future-ready.
@@ -619,13 +601,9 @@ export default function HomePage() {
 
           {/* Card 3 */}
           <div className="flex flex-col items-center h-full">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-              alt="Dominate"
-              width={128}
-              height={128}
-              className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-4 sm:mb-6"
-            />
+          <div className="w-16 h-16 sm:w-50 sm:h-50  mx-auto mb-4 sm:mb-5 flex items-center justify-center">
+   <img src='/rocket-ship.gif' alt='Expert Instructors' className='w-8 h-8 sm:w-45 sm:h-40 text-white' />
+    </div>
             <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Dominate</h3>
             <p className="text-sm sm:text-base text-gray-600 text-center leading-relaxed flex-grow">
               Take control of your digital future with the skills and confidence gained at Digital Career Center, empowering you to excel and lead in the competitive digital landscape.
@@ -636,11 +614,11 @@ export default function HomePage() {
 
       {/* Why Digital Career Center Section */}
       <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 mx-auto inline-block text-black">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12 mx-auto  text-black">
           Why Digital Career Center
-          <span className="block w-20 sm:w-24 h-1 bg-red-600 mx-auto mt-2"></span>
+          <span className="block w-20 sm:w-92 h-1 bg-red-600 mx-auto mt-2"></span>
         </h2>
-        <div className="max-w-4xl mb-8 sm:mb-12 md:mb-16">
+        <div className="max-w-4xl mb-8 sm:mb-12 md:mb-16 mx-auto text-center">
           <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8 px-2">
           Digital Career Center stands out by offering a blend of expert mentorship, hands-on projects, flexible learning, and guaranteed placement support, ensuring learners not only gain in-demand digital skills but also confidently transition into successful careers. Its unique focus on personalized guidance and community engagement creates a supportive environment for growth and job readiness.          </p>
         </div>
@@ -649,11 +627,11 @@ export default function HomePage() {
           <div className="space-y-4 sm:space-y-6">
             <div className="flex items-start bg-white shadow-md rounded-lg p-3 sm:p-4">
               <img
-                src="https://cdn-icons-png.flaticon.com/512/1828/1828961.png"
+                src="economic-growth.png"
                 alt="Trends"
                 width={40}
                 height={40}
-                className="w-8 h-8 sm:w-10 sm:h-10 mr-3 sm:mr-4 flex-shrink-0"
+                className="w-8 h-8 sm:w-12 sm:h-12 mr-3 sm:mr-4 flex-shrink-0"
               />
               <p className="text-sm sm:text-base text-gray-700">
                 Keep oneself up to date with the most recent market trends because of the fierce rivalry.
@@ -662,7 +640,7 @@ export default function HomePage() {
 
             <div className="flex items-start bg-white shadow-md rounded-lg p-3 sm:p-4">
               <img
-                src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                src="cv.png"
                 alt="Certification"
                 width={40}
                 height={40}
@@ -675,7 +653,7 @@ export default function HomePage() {
 
             <div className="flex items-start bg-white shadow-md rounded-lg p-3 sm:p-4">
               <img
-                src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
+                src="payment.png"
                 alt="Commission"
                 width={40}
                 height={40}
@@ -688,11 +666,11 @@ export default function HomePage() {
 
             <div className="flex items-start bg-white shadow-md rounded-lg p-3 sm:p-4">
               <img
-                src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                src="trainer.png"
                 alt="Partner Program"
                 width={40}
                 height={40}
-                className="w-8 h-8 sm:w-10 sm:h-10 mr-3 sm:mr-4 flex-shrink-0"
+                className="w-8 h-8 sm:w-13 sm:h-15 mr-3 sm:mr-4 flex-shrink-0"
               />
               <p className="text-sm sm:text-base text-gray-700">
                 With Digital Career Center exclusive partner program, new trainers can start their journey and build their strong position in the market.
@@ -705,7 +683,7 @@ export default function HomePage() {
             <img
               src="/gif.gif"
               alt="Animated illustration"
-              className="w-74 h-72 sm:w-80 sm:h-90 md:w-150 md:h-110 rounded-xl "
+              className="w-74 h-72 sm:w-80 sm:h-90 md:w-150 md:h-100 rounded-xl "
             />
           </div>
         </div>
@@ -715,7 +693,7 @@ export default function HomePage() {
       <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 text-center">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 relative inline-block text-black">
           Our Instructors
-          <span className="block w-20 sm:w-24 h-1 bg-red-600 mx-auto mt-2"></span>
+          <span className="block w-20 sm:w-60 h-1 bg-red-600 mx-auto mt-2"></span>
           
         </h2>
         <p className="text-sm sm:text-base text-gray-700 mb-8 sm:mb-12 md:mb-16 w-full sm:w-2/3 mx-auto px-2">
@@ -730,20 +708,29 @@ export default function HomePage() {
                 key={idx}
                 className="min-w-full sm:min-w-[33.333%] flex-shrink-0 px-2 sm:px-4"
               >
-                <div className="bg-gradient-to-b from-gray-200 to-gray-400 rounded-xl shadow-2xl p-4 sm:p-6 flex flex-col items-center transition-all " style={{boxShadow: '0 20px 40px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(255,255,255,0.2)'}}>
-                  <div className="relative mb-3 sm:mb-4">
-                    <Image
-                      src={ins.img}
-                      alt={ins.name}
-                      width={200}
-                      height={200}
-                      className="rounded-full w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-cover transform hover:scale-110 transition-transform duration-300" 
-                      style={{filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.3))'}}
-                    />
-                  </div>
-                  <h3 className="font-bold text-lg sm:text-xl text-center mb-2">{ins.name}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 text-center">{ins.role}</p>
-                </div>
+               <div
+  className="bg-gradient-to-b from-gray-400 to-gray-900 rounded-xl shadow-2xl p-4 sm:p-6 flex flex-col items-center transition-all"
+  style={{
+    boxShadow:
+      "0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.3)",
+  }}
+>
+  <div className="relative mb-3 sm:mb-4">
+    <Image
+      src={ins.img}
+      alt={ins.name}
+      width={200}
+      height={200}
+      className="rounded-full w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-cover transform hover:scale-110 transition-transform duration-300"
+      style={{ filter: "drop-shadow(0 8px 16px rgba(0,0,0,0.3))" }}
+    />
+  </div>
+  <h3 className="font-bold text-lg sm:text-xl text-center mb-2 text-white">
+    {ins.name}
+  </h3>
+  <p className="text-sm sm:text-base text-gray-300 text-center">{ins.role}</p>
+</div>
+
               </div>
             ))}
           </div>
@@ -777,41 +764,15 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6" style={{ backgroundColor: '#f8f4ff' }}>
+      <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6">
         <h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center text-black">
           Hear from Our Success Stories
-          <span className="block w-20 sm:w-24 h-1 bg-red-600 mx-auto mt-2"></span>
+          <span className="block w-20 sm:w-110 h-1 bg-red-600 mx-auto mt-2"></span>
         </h2>
 
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8">
-            {/* Left side - Person pointing */}
-            <div className="flex-shrink-0 lg:w-1/3">
-              <div className="relative">
-                <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto relative">
-                  {/* Background circle */}
-                  <div className="absolute inset-0 bg-purple-200 rounded-full opacity-30"></div>
-                  {/* Person image placeholder - you can replace with actual image */}
-                  <div className="absolute inset-4 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center">
-                    <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center shadow-lg">
-                      <svg className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                      </svg>
-                    </div>
-                  </div>
-                  {/* Pointing gesture */}
-                  <div className="absolute right-6 sm:right-8 top-1/2 transform -translate-y-1/2">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-purple-300 rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right side - Testimonial box */}
+            {/* Left side - Testimonial box */}
             <div className="flex-1 lg:w-2/3">
               <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 relative" style={{ backgroundColor: '#f8f4ff' }}>
                 {/* Navigation arrows */}
@@ -874,6 +835,30 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
+
+            {/* Right side - Person pointing */}
+            <div className="flex-shrink-0 lg:w-1/3">
+              <div className="relative">
+                <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-94 md:h-94 mx-auto relative">
+                  {/* Background circle */}
+                  <div className="absolute inset-0 bg-purple-200 rounded-full opacity-30"></div>
+                  {/* Person image */}
+                  <div className="absolute inset-4 rounded-full overflow-hidden">
+                    <Image
+                      src="/girl.jpg"
+                      alt="Happy Student"
+                      width={200}
+                      height={200}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  {/* Pointing gesture */}
+                  <div className="absolute left-6 sm:left-8 top-1/2 transform -translate-y-1/2">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -882,7 +867,7 @@ export default function HomePage() {
       <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 text-center">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 relative inline-block text-black">
           Our Media Presence
-          <span className="block w-20 sm:w-24 h-1 bg-red-600 mx-auto mt-2"></span>
+          <span className="block w-20 sm:w-74 h-1 bg-red-600 mx-auto mt-2"></span>
         </h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">

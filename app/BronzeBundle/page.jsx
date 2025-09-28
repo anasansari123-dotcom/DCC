@@ -87,7 +87,7 @@ export default function BronzeBundlePage() {
       
       {/* Top Header Section */}
       <div className="relative overflow-hidden">
-       <img src="/dsps.jpg" alt="" className='w-full h-[500px] ' />
+       <img src="/dsps.jpg" alt="" className='w-full h-[300px] md:h-[500px] md:w-full ' />
 
       </div>
 
